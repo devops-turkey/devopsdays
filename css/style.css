@@ -681,6 +681,22 @@ ul.footer-menu li a:hover {
   /* stops bg color from leaking outside the border: */
   border: 3px solid #f0f1f2;
 }
+#schedule .ignites-day-1:after{
+    background-image: url(../img/ignites-day-1.gif);
+    background-size: 100%;
+    top: 30px!important;
+    right: -18px!important;
+    height: 36px!important;
+    width: 36px!important;
+}
+#schedule .ignites-day-2:after{
+    background-image: url(../img/ignites-day-2.gif);
+    background-size: 100%;
+    top: 30px!important;
+    right: -18px!important;
+    height: 36px!important;
+    width: 36px!important;
+}
 #schedule .quentin:after{
     background-image: url(../img/quentin-adam.png);
     background-size: 100%;
