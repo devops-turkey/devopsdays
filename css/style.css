@@ -705,16 +705,16 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .iago:after{
-    background-image: url(../img/iago-lopez-galeiras.png);
+#schedule .arup:after{
+    background-image: url(../img/arup-chakrabarti.jpg);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .stefano:after{
-    background-image: url(../img/stefano-rago.png);
+#schedule .daniel:after{
+    background-image: url(../img/daniel-berman.jpg);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
