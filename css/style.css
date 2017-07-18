@@ -721,38 +721,31 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .alain:after{
-    background-image: url(../img/alain-helaili.png);
+#schedule .naeem:after{
+    background-image: url(http://devopsdays.istanbul/img/naeem.jpg);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .simon:after{
-    background-image: url(../img/blank-speaker.png);
+#schedule .emel:after{
+    background-image: url(http://devopsdays.istanbul/img/EmelDogrusoz.png);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .serhat:after{
-    background-image: url(../img/serhat-dirik.png);
+#schedule .ahmet:after{
+    background-image: url(http://devopsdays.istanbul/img/ahmetalpbalkan.jpg);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .serhat:after{
-    background-image: url(../img/serhat-dirik.png);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
-}
+
 #schedule .kayra:after{
     background-image: url(../img/kayra-otaner.png);
     background-size: 100%;
@@ -761,22 +754,7 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .julien:after{
-    background-image: url(../img/julien-simon.png);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
-}
-#schedule .chris:after{
-    background-image: url(../img/chris-van-tuin.png);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
-}
+
 
 #schedule .inverted .timeline-date:after {
   left: -7px;
