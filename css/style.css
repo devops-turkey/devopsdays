@@ -745,6 +745,15 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
+#schedule .orhan:after{
+    background-image: url(http://devopsdays.istanbul/img/orhankalayci.jpg);
+    background-size: 100%;
+    top: 30px!important;
+    right: -18px!important;
+    height: 36px!important;
+    width: 36px!important;
+}
+
 
 #schedule .kayra:after{
     background-image: url(../img/kayra-otaner.png);
