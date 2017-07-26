@@ -754,6 +754,15 @@ ul.footer-menu li a:hover {
     width: 36px!important;
 }
 
+#schedule .adam:after{
+    background-image: url(../img/adam-sandor.jpeg);
+    background-size: 100%;
+    top: 30px!important;
+    right: -18px!important;
+    height: 36px!important;
+    width: 36px!important;
+}
+
 
 #schedule .kayra:after{
     background-image: url(../img/kayra-otaner.png);
