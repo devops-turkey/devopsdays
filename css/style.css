@@ -722,12 +722,20 @@ ul.footer-menu li a:hover {
     width: 36px!important;
 }
 #schedule .naeem:after{
-    background-image: url(http://devopsdays.istanbul/img/naeem.jpg);
+    background-image: url(../img/naeem.jpg);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
     height: 36px!important;
     width: 36px!important;
+}
+#schedule .andreas:after{
+  background-image: url(../img/andreas.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
 }
 #schedule .emel:after{
     background-image: url(../img/emel-dogrusoz.jpg);
