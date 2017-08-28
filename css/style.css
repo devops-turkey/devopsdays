@@ -721,6 +721,14 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
+#schedule .laura:after{
+  background-image: url(../img/laura.png);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
 #schedule .naeem:after{
     background-image: url(../img/naeem.jpg);
     background-size: 100%;
