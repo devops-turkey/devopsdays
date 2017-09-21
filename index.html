@@ -856,13 +856,50 @@
          <div class="map" id="map"></div>
          <div class="col-md-2 col-sm-2 col-md-offset-8 col-sm-offset-8 hidden-xs desc" id="desc">
             <h3>The Venue</h3>
-            <h4><strong>Dedeman Bostanci</strong></h4>
+            <h4><strong>Dedeman Bostancı Hotel &amp; Convention Center</strong></h4>
             <p>Değirmenyolu Cad. No:39/B Bostancı</p>
             <p>İstanbul, Turkey</p>
+            <p>Parking available at the venue! Click <a href="javascript:show_popup('#popup-venue-detail')">here</a> for details.</p>
          </div>
          <div class="triangle-down-right-venue"></div>
       </div>
       <!-- End: Venue -->
+      <!-- Start: Venue Popup-->
+      <div class="popup-bg" id="popup-bg">
+      </div>
+      <div class="popup desc" id="popup-venue-detail">
+         <div class="pull-right"><a href="javascript:hide_popup('#popup-venue-detail')"><span class="ti-close"></span> Close</a></div>
+         <h3><strong>Dedeman Bostancı Hotel &amp; Convention Center</strong></h3>
+
+         <p>For our delegates, parking is available to purchase for 16 TL at the venue.</p>
+         
+         <p>For registered delegates, DevOpsDays İstanbul has arranged special discounted rates with our host hotel. 
+         These SPECIAL DEVOPSDAYS ISTANBUL RATES are offered on a limited number of rooms, subject to availability – so book early. 
+         Reservations must be made through e-mailing. Please confirm your reservation with the hotel.</p>
+         
+         <p>Rates are shown in Turkish Liras and do not include taxes.</p>
+         <div style="padding:5px;">
+            <h4><strong>Dedeman Bostancı Otel: (Breakfast included)</strong></h4>
+            <p><strong>Single Room :</strong> 239 TL + %8 VAT</p>
+            <p><strong>Double Room :</strong> 269 TL + %8 VAT</p>
+         </div>
+         <p>Second hotel (4 star) which belongs to the same group and shares the same garden:</p>
+         <div style="padding:5px;">
+            <h4><strong>Park Dedeman Otel:(Breakfast included)</strong></h4>
+            <p><strong>Single Room    :</strong> 189 TL + %8 VAT</p>
+            <p><strong>Double Room:</strong> 219 TL + %8 VAT</p>
+         </div>
+         <p>Please check the Hotel's regular prices online.</p>
+         <p>If you wish to proceed with the discounted rates, for reservation please write an email to:
+         Reservation Bostancı <i>&lt;reservation.bostanci@dedeman.com&gt;</i>; Bostancı Otel Resepsiyon <i>&lt;resepsiyon.bostanci@dedeman.com&gt;</i>
+         Mr. Aydın Baybura <i>&lt;aydin.baybura@dedeman.com&gt;</i></p>
+          
+         <p>Please make sure that you mention <u><strong>DevOpsDays Istanbul</strong></u> event in subject line.</p>  
+ 
+
+
+      </div>
+      <!-- End: Venue Popup-->
       <!-- Start: Footer -->
       <div class="container-fluid footer">
          <div class="row contact">
@@ -932,6 +969,7 @@
       <script src="js/jquery.easing.min.js"></script>
       <script src="js/scrolling-nav.js"></script>
       <script src="js/validator.js"></script>
+      <script src="js/popup.js"></script>
       <script type="text/javascript" src="js/feeds.js"></script>
       <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
       <script type="text/javascript" src="js/maps.js"></script>
