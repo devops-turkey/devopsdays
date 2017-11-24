@@ -754,7 +754,7 @@ ul.footer-menu li a:hover {
     width: 36px!important;
 }
 #schedule .ahmet:after{
-    background-image: url(http://devopsdays.istanbul/img/ahmetalpbalkan.jpg);
+    background-image: url(../img/ahmetalpbalkan.jpg);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
@@ -762,7 +762,7 @@ ul.footer-menu li a:hover {
     width: 36px!important;
 }
 #schedule .orhan:after{
-    background-image: url(http://devopsdays.istanbul/img/orhankalayci.jpg);
+    background-image: url(../img/orhankalayci.jpg);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
