@@ -150,7 +150,7 @@ a:hover, a:focus, a:active, a:visited {
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: center;
-  z-index: 50;
+  z-index: 0;
   -webkit-transform: rotate(-1.3deg);
   -ms-transform: rotate(-1.3deg);
   -moz-transform: rotate(-1.3deg);
@@ -168,7 +168,7 @@ a:hover, a:focus, a:active, a:visited {
     height: 0px;
     border-right: 180px solid transparent;
     border-bottom: 650px solid rgba(254, 74, 111, 0.9);
-    z-index: 25;
+    z-index: -1;
     -webkit-transform: rotate(1deg);
     -ms-transform: rotate(1deg);
     -moz-transform: rotate(1deg);
@@ -467,12 +467,12 @@ a span.ti-twitter-alt {
 }
 
 .venue .desc {
-    background-color: rgba(254, 74, 111, 0.9);
+    background-color: rgba(254, 74, 111, 1);
     position: absolute;
     z-index: 1000;
     top: 50px;
     height: 350px;
-    opacity: 0.85;
+    opacity: 1;
     color: #151F50;
 }
 
