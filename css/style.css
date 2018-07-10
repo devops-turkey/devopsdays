@@ -749,6 +749,23 @@ ul.footer-menu li a:hover {
   width: 36px!important;
 }
 
+#schedule .philipp:after{
+  background-image: url(../img/philipp.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+#schedule .matty:after{
+  background-image: url(../img/matty.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
 #schedule .daniel:after{
     background-image: url(../img/daniel-berman.jpg);
     background-size: 100%;
