@@ -698,21 +698,41 @@ ul.footer-menu li a:hover {
     width: 36px!important;
 }
 #schedule .lorenzo:after{
-    background-image: url(../img/lorenzo-fontana.jpg);
+    background-image: url(../img/lorenzo.png);
     background-size: 100%;
     top: 30px!important;
     right: -18px!important;
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .arup:after{
-    background-image: url(../img/arup-chakrabarti.jpg);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
+
+#schedule .kris:after{
+  background-image: url(../img/kris.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
 }
+
+#schedule .gokhan:after{
+  background-image: url(../img/gokhan.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
+#schedule .bernd:after{
+  background-image: url(../img/bernd.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
 #schedule .daniel:after{
     background-image: url(../img/daniel-berman.jpg);
     background-size: 100%;
@@ -721,30 +741,7 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .laura:after{
-  background-image: url(../img/laura.png);
-  background-size: 100%;
-  top: 30px!important;
-  right: -18px!important;
-  height: 36px!important;
-  width: 36px!important;
-}
-#schedule .naeem:after{
-    background-image: url(../img/naeem.jpg);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
-}
-#schedule .andreas:after{
-  background-image: url(../img/andreas.jpg);
-  background-size: 100%;
-  top: 30px!important;
-  right: -18px!important;
-  height: 36px!important;
-  width: 36px!important;
-}
+
 #schedule .emel:after{
     background-image: url(../img/emel-dogrusoz.jpg);
     background-size: 100%;
@@ -753,41 +750,7 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
-#schedule .ahmet:after{
-    background-image: url(../img/ahmetalpbalkan.jpg);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
-}
-#schedule .orhan:after{
-    background-image: url(../img/orhankalayci.jpg);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
-}
 
-#schedule .adam:after{
-    background-image: url(../img/adam-sandor.jpeg);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
-}
-
-
-#schedule .kayra:after{
-    background-image: url(../img/kayra-otaner.png);
-    background-size: 100%;
-    top: 30px!important;
-    right: -18px!important;
-    height: 36px!important;
-    width: 36px!important;
-}
 
 
 #schedule .inverted .timeline-date:after {
