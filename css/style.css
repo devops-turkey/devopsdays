@@ -697,6 +697,7 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
+
 #schedule .lorenzo:after{
     background-image: url(../img/lorenzo.png);
     background-size: 100%;
@@ -705,7 +706,22 @@ ul.footer-menu li a:hover {
     height: 36px!important;
     width: 36px!important;
 }
-
+#schedule .alex:after{
+  background-image: url(../img/alex.jpeg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+#schedule .rachael:after{
+  background-image: url(../img/rachael.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
 #schedule .kris:after{
   background-image: url(../img/kris.jpg);
   background-size: 100%;
