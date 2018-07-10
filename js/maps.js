@@ -1,6 +1,6 @@
 function init_map(){
   var myOptions = {zoom:16,
-    center:new google.maps.LatLng(40.962189, 29.110926),
+    center:new google.maps.LatLng(41.0609706, 28.989477),
     mapTypeId: google.maps.MapTypeId.ROADMAP};
 
   map = new google.maps.Map(document.getElementById("map"), myOptions);
@@ -231,8 +231,8 @@ function init_map(){
     ]
 }
 ]);
-  marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.962189, 29.110926)});
-  infowindow = new google.maps.InfoWindow({content:"<b>Dedeman İstanbul</b><br/>Değirmenyolu Cad. No:39/B Bostancı<br/>İstanbul"});
+  marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(41.0609706, 28.989477)});
+  infowindow = new google.maps.InfoWindow({content:"<b>Radisson Blu Hotel</b><br/>19 Mayıs Mahallesi, 19 Mayıs Cd.<br/>No:2, 34360 Şişli<br/>İstanbul"});
   google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});
   infowindow.open(map,marker);
 }
