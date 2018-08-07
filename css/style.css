@@ -784,6 +784,15 @@ ul.footer-menu li a:hover {
     width: 36px!important;
 }
 
+#schedule .armagan:after{
+    background-image: url(../img/armagan-amcalar.jpg);
+    background-size: 100%;
+    top: 30px!important;
+    right: -18px!important;
+    height: 36px!important;
+    width: 36px!important;
+}
+
 
 
 #schedule .inverted .timeline-date:after {
