@@ -757,8 +757,17 @@ ul.footer-menu li a:hover {
   height: 36px!important;
   width: 36px!important;
 }
-#schedule .matty:after{
-  background-image: url(../img/matty.jpg);
+#schedule .jacopo:after{
+  background-image: url(../img/jacopo.png);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
+#schedule .ckavili:after{
+  background-image: url(../img/ckavili.png);
   background-size: 100%;
   top: 30px!important;
   right: -18px!important;
