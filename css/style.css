@@ -854,6 +854,11 @@ ul.footer-menu li a:hover {
 .popup h3 {
 
 }
+
+#schedule .track2margin{
+  margin: 494px 0 0 0;
+  padding: 0 0;
+}
 /* ========================================
     Custom Media Queries
 ======================================== */
@@ -902,6 +907,10 @@ ul.footer-menu li a:hover {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
   }
+  #schedule .track2margin{
+    margin: 20px 0 0 0;
+    padding: 0 0;
+  }
 }
 
 /* iPad Portrait */
@@ -937,6 +946,10 @@ ul.footer-menu li a:hover {
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
+  }
+  #schedule .track2margin{
+    margin: 20px 0 0 0;
+    padding: 0 0;
   }
 }
 
