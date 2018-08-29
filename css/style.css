@@ -855,8 +855,28 @@ ul.footer-menu li a:hover {
 
 }
 
+#schedule .track1space1{
+  margin: 82px 0 0 0;
+  padding: 0 0;
+}
+
 #schedule .track2margin{
   margin: 494px 0 0 0;
+  padding: 0 0;
+}
+
+#schedule .track2space1{
+  margin: 354px 0 0 0;
+  padding: 0 0;
+}
+
+#schedule .track2space2{
+  margin: 262px 0 0 0;
+  padding: 0 0;
+}
+
+#schedule .track2space3{
+  margin: 300px 0 0 0;
   padding: 0 0;
 }
 /* ========================================
@@ -907,8 +927,29 @@ ul.footer-menu li a:hover {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
   }
+
+  #schedule .track1space1{
+    margin: 0 0 0 0;
+    padding: 0 0;
+  }
+
   #schedule .track2margin{
     margin: 20px 0 0 0;
+    padding: 0 0;
+  }
+
+  #schedule .track2space1{
+    margin: 0 0 0 0;
+    padding: 0 0;
+  }
+
+  #schedule .track2space2{
+    margin: 0 0 0 0;
+    padding: 0 0;
+  }
+
+  #schedule .track2space3{
+    margin: 0 0 0 0;
     padding: 0 0;
   }
 }
@@ -947,8 +988,29 @@ ul.footer-menu li a:hover {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
   }
+
+  #schedule .track1space1{
+    margin: 0 0 0 0;
+    padding: 0 0;
+  }
+
   #schedule .track2margin{
     margin: 20px 0 0 0;
+    padding: 0 0;
+  }
+
+  #schedule .track2space1{
+    margin: 0 0 0 0;
+    padding: 0 0;
+  }
+
+  #schedule .track2space2{
+    margin: 0 0 0 0;
+    padding: 0 0;
+  }
+
+  #schedule .track2space3{
+    margin: 0 0 0 0;
     padding: 0 0;
   }
 }
