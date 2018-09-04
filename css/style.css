@@ -806,6 +806,14 @@ ul.footer-menu li a:hover {
     width: 36px!important;
 }
 
+#schedule .andrew:after{
+    background-image: url(../img/andrew-clay-shafer.png);
+    background-size: 100%;
+    top: 30px!important;
+    right: -18px!important;
+    height: 36px!important;
+    width: 36px!important;
+}
 
 
 #schedule .inverted .timeline-date:after {
@@ -870,12 +878,12 @@ ul.footer-menu li a:hover {
 }
 
 #schedule .track2space1{
-  margin: 354px 0 0 0;
+  margin: 410px 0 0 0;
   padding: 0 0;
 }
 
 #schedule .track2space2{
-  margin: 262px 0 0 0;
+  margin: 480px 0 0 0;
   padding: 0 0;
 }
 
