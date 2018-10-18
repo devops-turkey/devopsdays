@@ -938,7 +938,7 @@ He is a frequent speaker at Open Source conferences, father of two and a devoted
             </div>
             <div class="col-md-4 col-md-offset-1 content-ct">
                <h3><span class="ti-twitter"></span> Twitter Feed</h3>
-               <a class="twitter-timeline"  href="https://twitter.com/hashtag/devopsdays" data-widget-id="719518633165250560" data-chrome="noheader nofooter noborders transparent">#devopsdays Tweetleri</a>
+               <a class="twitter-timeline" data-lang="en" data-height="360" data-theme="dark" href="https://twitter.com/devopsdaysist">Tweets by devopsdaysist</a>
             </div>
          </div>
          <div class="triangle-down-left-footer"></div>
@@ -968,9 +968,28 @@ He is a frequent speaker at Open Source conferences, father of two and a devoted
       <script src="js/jquery.easing.min.js"></script>
       <script src="js/scrolling-nav.js"></script>
       <script src="js/validator.js"></script>
-      <script type="text/javascript" src="js/feeds.js"></script>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAgiorAJdrk71avGkY4bsTAwU_7wbGEwmQ&sensor=false"></script>
       <script type="text/javascript" src="js/maps.js"></script>
       <script type="text/javascript" src="js/analytics.js"></script>
+
+      <!-- Twitter Timeline Customizations -->
+      <style type="text/css" id="cssID">
+         .timeline-Header {
+           display: none;
+         }
+         .timeline-Footer {
+           display: none;
+         }
+         .timeline-Widget {
+           background-color: #151F50;
+         }
+      </style>
+
+      <script type="text/javascript">
+         $(window).load(function () {
+            $("#twitter-widget-1").contents().find("head")[0].appendChild(cssID);  
+         });
+      </script>
    </body>
 </html>
