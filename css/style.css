@@ -1059,3 +1059,57 @@ ul.footer-menu li a:hover {
   height: 36px!important;
   width: 36px!important;
 }
+
+#schedule .ThiagodeFaria:after{
+  background-image: url(../img/thiago_bew.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
+#schedule .EmrahSamdan:after{
+  background-image: url(../img/EmrahSamdan.png);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
+#schedule .PranjalDeo:after{
+  background-image: url(../img/pranjalDeo.jpeg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
+#schedule .Andrew:after{
+  background-image: url(../img/andrew-clay-shafer.1.png);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
+#schedule .HuseyinBabal:after{
+  background-image: url(../img/huseyinBabal.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
+#schedule .Leonardo:after{
+  background-image: url(../img/leodido.jpg);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
