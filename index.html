@@ -525,10 +525,34 @@
                            10:00<span>AM</span>
                         </p>
                      </div>
-                     <div class="timeline-info text-left pull-left">
-                        <a href="workshop1.html"><h1>Terraform Workshop</h1></a>
+                     <div class="timeline-info text-left pull-left" data-toggle="modal" data-target="#terraformWorkshopModal"> 
+                           <h1 class="timeLaneModal">Terraform Workshop</h1>
                         <p>Anton Babenko</p>
                      </div>
+                     <div class="modal fade bs-example-modal-lg" id="terraformWorkshopModal" tabindex="-1" role="dialog" aria-labelledby="terraformWorkshopModalLabel">
+                           <div class="modal-dialog modal-lg" role="document">
+                             <div class="modal-content">
+                               <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                 <h4 class="modal-title" id="terraformWorkshopModalLabel">Terraform Workshop - Anton Babenko</h4>
+                               </div>
+                               <div class="modal-body">
+                                    <h3>From Zero to Hero With Terraform, AWS and Friends.</h3><br/>
+
+                                    <h4>Description:</h4> <br/>
+                                    
+                                    It is easy to get started with Terraform to manage infrastructure as code. Just read the documentation on terraform.io, and you are done. Almost.<br/>
+                                    The harder part begins when infrastructure grows in all directions (several AWS/GoogleCloud/Azure accounts, regions, teams, projects, environments, external integrations). One of the most frequent questions is "how to structure code".<br/>
+                                    As the main developer of verified Terraform AWS modules (https://github.com/terraform-aws-modules), I want to show how to use those modules to build real infrastructures. We'll make it in an interactive way where everyone is involved.<br/>
+                                    In this workshop, I will explain many of challenges related to that, what works, what does not work, why so, and most importantly I will show all the code which works from small projects to very-large infrastructures (featuring multi-cloud and multi-region setup).<br/>
+                                    This workshop is best suitable for people who have been using Terraform at least for some time and already have practical questions, but there will be some basic information for newcomers also.<br/>
+                                    Previous experience using Terraform and AWS is not required but recommended to better understand the workshop.<br/>
+                                    Participants will be provided with AWS access prior to the workshop.<br/>
+                                    <a href="http://www.terraform-best-practices.com">Most of the content used for the workshop you can find here - www.terraform-best-practices.com</a>
+                               </div>
+                             </div>
+                           </div>
+                         </div>    
                   </div>
                   <div class="timeline-block clearfix ">
                      <div class="timeline-date text-right pull-left">
@@ -585,10 +609,62 @@
                            10:00<span>AM</span>
                         </p>
                      </div>
-                     <div class="timeline-info text-left pull-left">
-                        <a href="workshop2.html"><h1>DevSecOps Workshop</h1></a>
+                     <div class="timeline-info text-left pull-left" data-toggle="modal" data-target="#devSecOpsWorkshopModal"> >
+                        <h1 class="timeLaneModal">DevSecOps Workshop</h1>
                         <p>Anand Tiwari</p>
                      </div>
+                     <div class="modal fade bs-example-modal-lg" id="devSecOpsWorkshopModal" tabindex="-1" role="dialog" aria-labelledby="devSecOpsWorkshopModal">
+                           <div class="modal-dialog modal-lg" role="document">
+                             <div class="modal-content">
+                               <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                 <h4 class="modal-title" id="devSecOpsWorkshopModal">DevSecOps Workshop - Anand Tiwari</h4>
+                               </div>
+                               <div class="modal-body">
+                                    <h2>DevSecOps Workshop - Anand Tiwari</h2>
+
+                                    <h3>Description:</h3>
+                                    
+                                    <p>Modern enterprises are implementing the technical and cultural changes required to embrace  DevOps methodology. DevSecOps extends DevOps by introducing security early into the SDLC process, thereby minimizing the security vulnerabilities and enhancing the software security posture. In this workshop, we will show how this can be achieved through a series of live demonstrations and practical examples.
+                                    As part of this workshop attendees will receive a state-of-the-art DevSecOps tool-chest comprising of various open-source tools and scripts to help the DevOps engineers in automating security within the CI/CD pipeline. While the workshop uses Java/J2EE framework, the workshop is language agnostic and similar tools can be used against other application development frameworks.
+                                    The workshop will also present various case studies on how critical bugs and security breaches affecting popular software and applications could have been prevented using a simple DevSecOps approach.
+                                    </p>
+                                    
+                                    <h3>Why DevSecOps?</h3>
+                                    
+                                    <br>The DevSecOps process will help in 
+                                    <br>Create a security culture/mindset amongst the already integrated “DevOps” team.
+                                    <br>Find and fix security bugs as early in SDLC as possible.
+                                    <br>The culture promotes the philosophy “security is everyone's problem”.
+                                    <br>Integrate all security software centrally and utilize the results more effectively.
+                                    <br>Measure and shrink the attack surface.
+                                    <br>Course Outline.
+                                    <br>The following topics will be covered encompassing the entire Secure DevOps pipeline,
+                                    <br>Introduction and overview of DevOps.</p>
+                                    
+                                    <h3>What and Why of DevSecOps?</h3>
+                                    
+                                    <br>Integrating Security in CI/CD
+                                    <br>Vulnerability Management using Archerysec
+                                    <br>Secret Management using Vault, Jenkins and Docker Secrets
+                                    <br>Security in Developer Workstations: Pre-Commit Hooks using Talisman 
+                                    <br>Software Composition Analysis using Dependency-Checker
+                                    <br>SAST - Static Application Security Testing using FindSecBugs
+                                    <br>DAST - Dynamic Application Security Testing using ZAP
+                                    <br>Security in Infrastructure as a Code using Clair
+                                    <br>Automated Vulnerability Assessment using OpenVAS
+                                    <br>Compliance as Code using Inspec
+                                    <br>Production Real-Time Alerting and Monitoring using ModSecurity WAF
+                                    <br>DevSecOps in AWS
+                                    <br>Challenges in DevSecOps
+                                    <br>DevSecOps Enablers
+                                    
+                                    <h3>Who Should Take this Course?</h3>
+                                    <p>DevSecOps Workshop, which will give the target audience a holistic approach in assessing and securing the web applications in an automated fashion within the existing CI/CD pipeline, can be attended by DevOps engineers, security and solutions architects, system administrators and anybody who is willing to inject security aspects in their DevOps process.</p>
+                               </div>
+                             </div>
+                           </div>
+                         </div> 
                   </div>
                   <div class="timeline-block clearfix ">
                      <div class="timeline-date text-right pull-left">
