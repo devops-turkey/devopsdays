@@ -1114,6 +1114,15 @@ ul.footer-menu li a:hover {
   width: 36px!important;
 }
 
+#schedule .halilcem:after{
+  background-image: url(../img/halilcemgursoy.png);
+  background-size: 100%;
+  top: 30px!important;
+  right: -18px!important;
+  height: 36px!important;
+  width: 36px!important;
+}
+
 #schedule .anton:after{
   background-image: url(../img/anton.jpg);
   background-size: 100%;
