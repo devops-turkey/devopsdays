@@ -59,7 +59,7 @@ jQuery(function ($) {
 
    if ($('.countdown').length > 0) {
       $(".countdown").jCounter({
-         date: '17 September 2020 12:00:00',
+         date: '25 June 2020 09:30:00',
          fallback: function () {
             console.log("count finished!")
          }
@@ -212,8 +212,16 @@ jQuery(function ($) {
    });
 
    /*=============================================================
-   			video popup
+   			iframce popup
    	=========================================================================*/
+      $('.registerNow, .register-now').magnificPopup({
+         type: 'iframe'
+      });
+
+
+    /*=============================================================
+            video popup
+      =========================================================================*/
 
    $('.ts-video-popup').magnificPopup({
       type: 'iframe',
