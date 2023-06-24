@@ -332,18 +332,21 @@
       <!-- Start: Venue -->
       <div class="container-fluid venue" id="venue">
          <div class="triangle-down-left-venue"></div>
-         <div class="map" id="map">
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3012.881806183708!2d29.10787107612028!3d40.96216802226275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac65ea432614d%3A0xb89136e817dee0f4!2sDedeman%20Bostanc%C4%B1%20Istanbul%20Hotel%20%26%20Convention%20Center!5e0!3m2!1sen!2str!4v1687629536418!5m2!1sen!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     
+         <!-- The Venue Başlığı -->
+         <div class="row">
          </div>
-         <div class="col-md-2 col-sm-2 col-md-offset-8 col-sm-offset-8 hidden-xs desc" id="desc">
-             <h3>The Venue</h3>
-             <h4><strong>Dedeman Bostanci Hotel &amp; Convention Center</strong></h4>
-             <p>İçerenköy Mahallesi, Değirmen Yolu Cd. No: 39C, 34752 Ataşehir</p>
-             <p>İstanbul, Turkey</p>
-             <p>Parking available at the venue! Click <a href="javascript:show_popup('#popup-venue-detail')">here</a> for details.</p>
+         <div class="row">
+             <!-- Harita -->
+             <div class="col-md-12">
+                 <div class="map" id="map">
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3012.881806183708!2d29.10787107612028!3d40.96216802226275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac65ea432614d%3A0xb89136e817dee0f4!2sDedeman%20Bostanc%C4%B1%20Istanbul%20Hotel%20%26%20Convention%20Center!5e0!3m2!1sen!2str!4v1687629536418!5m2!1sen!2str" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                 </div>
+             </div>
          </div>
          <div class="triangle-down-right-venue"></div>
      </div>
+     
       <!-- End: Venue -->
       <!-- Start: Venue Popup-->
       <div class="popup-bg" id="popup-bg">
@@ -361,7 +364,7 @@
          <div class="row contact">
             <div class="col-md-6 contact-form">
                <h3 class="content-ct"><span class="ti-email"></span> <span>Contact Form</span></h3>
-               <form class="form-horizontal" data-toggle="validator" role="form" action="https://formspree.io/organizers-istanbul-2023@devopsdays.org" method="POST">
+               <form class="form-horizontal" data-toggle="validator" role="form" action="https://formspree.io/f/maygwnae" method="POST">
                   <div class="form-group">
                      <label for="name" class="col-sm-3 control-label">Name<sup>*</sup></label>
                      <div class="col-sm-9">
@@ -427,7 +430,6 @@
       <script src="js/validator.js"></script>
       <script src="js/popup.js"></script>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAgiorAJdrk71avGkY4bsTAwU_7wbGEwmQ"></script>
       <script type="text/javascript" src="js/maps.js"></script>
       <script type="text/javascript" src="js/analytics.js"></script>
 
