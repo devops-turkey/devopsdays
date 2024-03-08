@@ -1861,6 +1861,30 @@ img.pull-right {
 /*============================
  ts schedule 
  ===========================*/
+.schedule-title-wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.schedule-slot-info-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.schedule-slot-info-container.alone {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.schedule-slot-info-container.alone .schedule-slot-title{
+  text-align: center;
+}
+.schedule-slot-info-container.alone .schedule-slot-info{
+  display: grid;
+  place-content: center;
+}
+
 .ts-schedule-info {
   position: relative;
 }
