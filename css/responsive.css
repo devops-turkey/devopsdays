@@ -485,18 +485,24 @@ small device /mobile sm and large
         top: 30px;
         left: 160px;
         right: auto; }
-  .schedule-listing {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column; }
+    .track-clickable {
+      cursor: pointer;
+    }
+    .track-clickable.active {
+      color: #e7015e;
+    }
     .schedule-listing .schedule-slot-time {
-      text-align: center;
+      background: #120f4e;
+      color: #fff;
+      padding: 60px 28px;
+      font-size: 18px;
+      font-weight: 700;
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-      flex: 0 0 100%;
-      max-width: 100%;
-      padding: 20px 35px; }
+      -ms-flex: 0 0 18%;
+      flex: 0 0 18%;
+      max-width: 38%;
+      min-width: 38%;
+    }
     .schedule-listing .schedule-slot-info {
       padding: 35px 40px 35px 35px;
       border-left: 1px dashed #171298; }

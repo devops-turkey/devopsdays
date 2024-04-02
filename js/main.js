@@ -26,7 +26,6 @@
 jQuery(function ($) {
 
 
-
    /**-------------------------------------------------
     *Fixed HEader
     *----------------------------------------------------**/
@@ -105,50 +104,49 @@ jQuery(function ($) {
 
    if ($('.grid').length > 0) {
       var $portfolioGrid = $('.grid'),
-         colWidth = function () {
-            var w = $portfolioGrid.width(),
-               columnNum = 1,
-               columnWidth = 0;
-            if (w > 1200) {
-               columnNum = 3;
-            } else if (w > 900) {
-               columnNum = 3;
-            } else if (w > 600) {
-               columnNum = 2;
-            } else if (w > 450) {
-               columnNum = 2;
-            } else if (w > 385) {
-               columnNum = 1;
-            }
-            columnWidth = Math.floor(w / columnNum);
-            $portfolioGrid.find('.grid-item').each(function () {
-               var $item = $(this),
-                  multiplier_w = $item.attr('class').match(/grid-item-w(\d)/),
-                  multiplier_h = $item.attr('class').match(/grid-item-h(\d)/),
-                  width = multiplier_w ? columnWidth * multiplier_w[1] : columnWidth,
-                  height = multiplier_h ? columnWidth * multiplier_h[1] * 0.4 - 12 : columnWidth * 0.3;
-               $item.css({
-                  width: width,
-                  //height: height
-               });
-            });
-            return columnWidth;
-         },
+          colWidth = function () {
+             var w = $portfolioGrid.width(),
+                 columnNum = 1,
+                 columnWidth = 0;
+             if (w > 1200) {
+                columnNum = 3;
+             } else if (w > 900) {
+                columnNum = 3;
+             } else if (w > 600) {
+                columnNum = 2;
+             } else if (w > 450) {
+                columnNum = 2;
+             } else if (w > 385) {
+                columnNum = 1;
+             }
+             columnWidth = Math.floor(w / columnNum);
+             $portfolioGrid.find('.grid-item').each(function () {
+                var $item = $(this),
+                    multiplier_w = $item.attr('class').match(/grid-item-w(\d)/),
+                    multiplier_h = $item.attr('class').match(/grid-item-h(\d)/),
+                    width = multiplier_w ? columnWidth * multiplier_w[1] : columnWidth,
+                    height = multiplier_h ? columnWidth * multiplier_h[1] * 0.4 - 12 : columnWidth * 0.3;
+                $item.css({
+                   width: width,
+                   //height: height
+                });
+             });
+             return columnWidth;
+          },
 
-         isotope = function () {
-            $portfolioGrid.isotope({
-               resizable: true,
-               itemSelector: '.grid-item',
-               masonry: {
-                  columnWidth: colWidth(),
-                  gutterWidth: 3
-               }
-            });
-         };
+          isotope = function () {
+             $portfolioGrid.isotope({
+                resizable: true,
+                itemSelector: '.grid-item',
+                masonry: {
+                   columnWidth: colWidth(),
+                   gutterWidth: 3
+                }
+             });
+          };
       isotope();
       $(window).resize(isotope);
    } // End is_exists
-
 
 
    /*==========================================================
@@ -161,7 +159,7 @@ jQuery(function ($) {
          mouseDrag: true,
          loop: true,
          touchDrag: true,
-         autoplay:true,
+         autoplay: true,
          dots: true,
          autoplayTimeout: 5000,
          animateOut: 'fadeOut',
@@ -214,14 +212,14 @@ jQuery(function ($) {
    /*=============================================================
    			iframce popup
    	=========================================================================*/
-      $('.registerNow, .register-now').magnificPopup({
-         type: 'iframe'
-      });
+   $('.registerNow, .register-now').magnificPopup({
+      type: 'iframe'
+   });
 
 
-    /*=============================================================
-            video popup
-      =========================================================================*/
+   /*=============================================================
+           video popup
+     =========================================================================*/
 
    $('.ts-video-popup').magnificPopup({
       type: 'iframe',
@@ -243,34 +241,34 @@ jQuery(function ($) {
    			hero image animation
    	=========================================================================*/
    $('.tile')
-      // tile mouse actions
-      .on('mouseover', function () {
-         $(this).children('.photo').css({
-            'transform': 'scale(' + $(this).attr('data-scale') + ')'
-         });
-      })
-      .on('mouseout', function () {
-         $(this).children('.photo').css({
-            'transform': 'scale(1)'
-         });
-      })
-      .on('mousemove', function (e) {
-         $(this).children('.photo').css({
-            'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%'
-         });
-      })
-      // tiles set up
-      .each(function () {
-         $(this)
-            // add a photo container
-            .append('<div class="photo"></div>')
-            // some text just to show zoom level on current item in this example
-            //.append('<div class="txt"><div class="x">'+ $(this).attr('data-scale') +'x</div>ZOOM ON<br>HOVER</div>')
-            // set up a background image for each tile based on data-image attribute
-            .children('.photo').css({
-               'background-image': 'url(' + $(this).attr('data-image') + ')'
-            });
-      });
+       // tile mouse actions
+       .on('mouseover', function () {
+          $(this).children('.photo').css({
+             'transform': 'scale(' + $(this).attr('data-scale') + ')'
+          });
+       })
+       .on('mouseout', function () {
+          $(this).children('.photo').css({
+             'transform': 'scale(1)'
+          });
+       })
+       .on('mousemove', function (e) {
+          $(this).children('.photo').css({
+             'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%'
+          });
+       })
+       // tiles set up
+       .each(function () {
+          $(this)
+              // add a photo container
+              .append('<div class="photo"></div>')
+              // some text just to show zoom level on current item in this example
+              //.append('<div class="txt"><div class="x">'+ $(this).attr('data-scale') +'x</div>ZOOM ON<br>HOVER</div>')
+              // set up a background image for each tile based on data-image attribute
+              .children('.photo').css({
+             'background-image': 'url(' + $(this).attr('data-image') + ')'
+          });
+       });
 
    /*==========================================================
    wow animated
@@ -302,7 +300,6 @@ jQuery(function ($) {
    });
 
 
-   
    // scrollme.init();
    // scroll down 
     if ($('.header .ts-scroll').length > 0) {
@@ -315,5 +312,11 @@ jQuery(function ($) {
       });
    }
 
-   
+   $('.track-clickable').on('click', function () {
+      var targetId = $(this).data('target');
+      $('.tab-pane').removeClass('show active').addClass('fade');
+      $(targetId).removeClass('fade').addClass('show active');
+      $(this).addClass('active');
+      $('.track-clickable').not(this).removeClass('active');
+   });
 });

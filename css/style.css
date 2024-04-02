@@ -434,6 +434,11 @@ img.pull-right {
   background-image: url(../images/shap/title-white.png);
 }
 
+.section-title.track-clickable.active:after {
+  background-image: url(../images/shap/title-red.png);
+  color: #e7015e;
+}
+
 .section-title.white span,
 .column-title.white span {
   color: #fff;
