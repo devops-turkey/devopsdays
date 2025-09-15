@@ -1873,7 +1873,8 @@ img.pull-right {
 .schedule-slot-info-container {
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .schedule-slot-info-container.alone {
@@ -1972,7 +1973,7 @@ img.pull-right {
   color: #fff;
 }
 
-.ts-schedule-white * .schedule-listing:hover .schedule-slot-title {
+.ts-schedule-white * .schedule-slot-info:hover .schedule-slot-title {
   color: #e7015e;
 }
 
@@ -2005,23 +2006,24 @@ img.pull-right {
 
 .schedule-listing .schedule-slot-info {
   position: relative;
-  padding: 35px 40px 35px 170px;
-  border: 1px dashed #171298;
-  border-left: none;
+  padding: 35px 20px 35px 120px;
+  border: none;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .schedule-listing .schedule-slot-info .schedule-slot-speakers {
   position: absolute;
-  left: 40px;
-  top: 0;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   height: 80px;
   width: 80px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -ms-border-radius: 50%;
-  bottom: 0;
-  margin: auto;
 }
 
 .schedule-listing .schedule-slot-info .schedule-slot-title {
@@ -2038,7 +2040,7 @@ img.pull-right {
   margin-bottom: 0;
 }
 
-.schedule-listing:hover .schedule-slot-title {
+.schedule-slot-info:hover .schedule-slot-title {
   color: #3b1d82;
 }
 
