@@ -155,7 +155,7 @@ function createSpeakerCard(speaker, uniqueId) {
         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="400ms">
             <div class="ts-speaker white-text">
                 <div class="speaker-img">
-                    <img class="img-fluid" src="${speaker.image}" alt="${speaker.name}" onerror="this.src='images/speakers/blank-speaker.png';">
+                    <img class="img-fluid" src="${speaker.image}" alt="${speaker.name}" onerror="this.src='/images/speakers/blank-speaker.png';">
                     <a href="#${popupId}" class="view-speaker ts-image-popup" data-effect="mfp-zoom-in">
                         <i class="icon icon-plus"></i>
                     </a>
@@ -169,7 +169,7 @@ function createSpeakerCard(speaker, uniqueId) {
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="ts-speaker-popup-img">
-                            <img src="${speaker.image}" alt="${speaker.name}" class="img-fluid" onerror="this.src='images/speakers/blank-speaker.png';">
+                            <img src="${speaker.image}" alt="${speaker.name}" class="img-fluid" onerror="this.src='/images/speakers/blank-speaker.png';">
                         </div>
                     </div>
                     <div class="col-lg-6">
