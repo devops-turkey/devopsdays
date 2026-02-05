@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconfont';
   src:
-    url('../fonts/iconfont.ttf?ukrc8w') format('truetype'),
-    url('../fonts/iconfont.woff?ukrc8w') format('woff'),
-    url('../fonts/iconfont.svg?ukrc8w#iconfont') format('svg');
+    url('/fonts/iconfont.ttf?ukrc8w') format('truetype'),
+    url('/fonts/iconfont.woff?ukrc8w') format('woff'),
+    url('/fonts/iconfont.svg?ukrc8w#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
 }
