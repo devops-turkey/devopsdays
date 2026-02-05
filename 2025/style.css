@@ -1891,11 +1891,6 @@ img.pull-right {
   place-content: center;
 }
 
-/* Empty slot for Track 2 when shared session is in Track 1 */
-.schedule-slot-info.empty-slot {
-  min-height: 50px;
-}
-
 .ts-schedule-info {
   position: relative;
 }
@@ -2071,11 +2066,6 @@ img.pull-right {
 .schedule-listing-btn {
   text-align: center;
   margin-top: 60px;
-}
-
-/* Hide inactive tabs completely to prevent space issues */
-.tab-pane.fade:not(.show) {
-  display: none;
 }
 
 .schedule-tabs .tab-pane.active,

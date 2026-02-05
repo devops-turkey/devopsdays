@@ -1,0 +1,121 @@
+# DevOpsDays Istanbul 2026 - Schedule
+# Speaker adları speakers.yaml ile senkronize tutulmalıdır
+# shared: true olan session'lar her iki track'i kapsar (tek geniş kart olarak görünür)
+
+tracks:
+  - name: "Track 1"
+    language: "English"
+    sessions:
+      - time: "8:15 - 9:00"
+        type: "Registration"
+        title: "Registration"
+        description: "Registration and Breakfast"
+        shared: true
+
+      - time: "9:00 - 9:40"
+        type: "Opening"
+        title: "Opening"
+        description: "Format & Sponsorship Pitches"
+        shared: true
+
+      - time: "9:40 - 10:20"
+        type: "Keynote"
+        speaker: "Kief Morris"
+        description: "Opening Keynote"
+        shared: true
+
+      - time: "10:25 - 10:55"
+        type: "Track Sessions"
+        speaker: "Cansu Kavılı Örnek"
+        description: "From YAML to Intelligence: Evolving Platform Engineering for the AI Era"
+
+      - time: "10:55 - 11:15"
+        type: "Coffee Break"
+        title: "Coffee Break"
+        description: "Networking and Refreshments"
+        shared: true
+
+      - time: "11:15 - 11:45"
+        type: "Track Sessions"
+        speaker: "Nuno Ribeiro"
+        description: "Unblock Your PRs: AI-Powered CI Troubleshooting with Dagger"
+
+      - time: "11:50 - 12:20"
+        type: "Track Sessions"
+        speaker: "Sena Yakut"
+        description: "Oops, I Broke It Again: Practicing Safe Chaos in the Cloud"
+
+      - time: "12:25 - 13:00"
+        type: "Ignite Talks"
+        title: "Ignite Talks"
+        shared: true
+
+      - time: "13:00 - 14:00"
+        type: "Lunch"
+        title: "Lunch"
+        description: "Lunch Break"
+        shared: true
+
+      - time: "14:00 - 14:30"
+        type: "Track Sessions"
+        speaker: "Timothy Mamo"
+        description: "How to Implement ${BUZZWORD}"
+
+      - time: "14:35 - 15:15"
+        type: "Keynote"
+        speaker: "Ajay Chankramath"
+        description: "Closing Keynote"
+        shared: true
+
+      - time: "15:15 - 15:30"
+        type: "Coffee Break"
+        title: "Coffee Break"
+        description: "Networking and Refreshments"
+        shared: true
+
+      - time: "15:30 - 16:00"
+        type: "Open Space"
+        title: "Open Space Opening"
+        description: "Open Space Session Introduction"
+        shared: true
+
+      - time: "16:00 - 16:30"
+        type: "Open Space"
+        title: "Open Space Discussions #1"
+        description: "Open Space Round 1"
+        shared: true
+
+      - time: "16:30 - 17:00"
+        type: "Open Space"
+        title: "Open Space Discussions #2"
+        description: "Open Space Round 2"
+        shared: true
+
+      - time: "17:00 - 17:30"
+        type: "Closing"
+        title: "Raffle + Closing"
+        description: "Prize Draw and Closing Remarks"
+        shared: true
+
+  - name: "Track 2"
+    language: "Turkish"
+    sessions:
+      - time: "10:25 - 10:55"
+        type: "Track Sessions"
+        speaker: "Ersel Yıldız"
+        description: "Migration Processes and Challenges Among Cloud Service Providers"
+
+      - time: "11:15 - 11:45"
+        type: "Track Sessions"
+        speaker: "Emin Alemdar"
+        description: "From Chaos to Control Without the Headaches: Unified Resource Orchestration with KRO"
+
+      - time: "11:50 - 12:20"
+        type: "Track Sessions"
+        speaker: "Furkan Türkal"
+        description: "From DevOps to AIOps: Kubernetes On-Call Alert Auto-Remediation with AI Workflows and MCP Server"
+
+      - time: "14:00 - 14:30"
+        type: "Track Sessions"
+        speaker: "Evren Pala"
+        description: "Mastering Kubernetes Network Policies: From Theory to Automated Practice"
