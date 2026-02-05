@@ -322,11 +322,12 @@ function renderMobileSchedule(tracks) {
             // Track 2: Shared session'ları ve track'e özel session'ları birleştir
             const allSessions = [];
             
-            // Shared session'ları ekle - "Main Stage" notu ile
+            // Shared session'ları ekle - önemli olanlar için "Main Stage" notu
             sharedSessions.forEach(s => {
                 allSessions.push({ 
                     ...s, 
-                    isMainStage: true  // Track 2'de gösterilirken Main Stage notu eklenecek
+                    // Keynote, Ignite, Open Space ve speaker içeren session'larda Main Stage göster
+                    isMainStage: s.speaker || s.type === 'Keynote' || s.type === 'Ignite Talks' || s.type === 'Open Space'
                 });
             });
             
