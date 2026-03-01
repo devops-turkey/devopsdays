@@ -1,0 +1,65 @@
+# DevOpsDays Istanbul 2026 - Sponsors
+# enabled: true/false - when false, the sponsors section is hidden and a "coming soon" message is shown
+# image: just the filename is enough, /images/sponsors/ prefix is added automatically
+# width: logo width in pixels (optional, default: 200)
+#
+# Usage example:
+# tiers:
+#   - name: "Platinum Sponsors"
+#     col_class: "col-md-4"
+#     sponsors:
+#       - name: "Acme Corp"
+#         url: "https://acmecorp.com/"
+#         image: "acme.png"
+#         width: 300
+#
+#   - name: "Gold Sponsors"
+#     col_class: "col-md"
+#     sponsors:
+#       - name: "BigTech"
+#         url: "https://bigtech.com/"
+#         image: "bigtech.png"
+#         width: 150
+
+enabled: false
+
+tiers:
+  - name: "Platinum Sponsors"
+    col_class: "col-md-4"
+    sponsors:
+      - name: "Akbank"
+        url: "https://akbank.com/"
+        image: "akbank.png"
+        width: 400
+      - name: "Kloia"
+        url: "http://kloia.com/"
+        image: "kloia.png"
+        width: 150
+      - name: "BestCloudForMe"
+        url: "http://bestcloudfor.me/"
+        image: "bestcloudforme.png"
+        width: 400
+
+  - name: "Gold Sponsors"
+    col_class: "col-md"
+    sponsors:
+      - name: "AWS"
+        url: "https://aws.amazon.com/"
+        image: "aws.png"
+        width: 120
+      - name: "AXOFT"
+        url: "https://axoftsolutions.com/"
+        image: "axoft.png"
+        width: 190
+
+  - name: "Silver Sponsors"
+    col_class: "col-md"
+    sponsors:
+      - name: "PARNY"
+        url: "https://parny.io/"
+        image: "parny.png"
+        width: 150
+      - name: "TURKNET"
+        url: "https://turk.net/"
+        image: "turknet.png"
+        width: 120

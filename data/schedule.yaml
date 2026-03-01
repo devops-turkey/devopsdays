@@ -1,6 +1,9 @@
 # DevOpsDays Istanbul 2026 - Schedule
-# Speaker adları speakers.yaml ile senkronize tutulmalıdır
-# shared: true olan session'lar her iki track'i kapsar (tek geniş kart olarak görünür)
+# Speaker names must be kept in sync with speakers.yaml
+# shared: true sessions span both tracks (rendered as a single wide card)
+# enabled: true/false - when false, the schedule section is hidden and a "coming soon" message is shown
+
+enabled: false
 
 tracks:
   - name: "Track 1"
@@ -20,14 +23,14 @@ tracks:
 
       - time: "9:40 - 10:20"
         type: "Keynote"
-        speaker: "Kief Morris"
+        speaker: ""
         description: "Opening Keynote"
         shared: true
 
       - time: "10:25 - 10:55"
         type: "Track Sessions"
-        speaker: "Cansu Kavılı Örnek"
-        description: "From YAML to Intelligence: Evolving Platform Engineering for the AI Era"
+        speaker: ""
+        description: ""
 
       - time: "10:55 - 11:15"
         type: "Coffee Break"
@@ -37,13 +40,13 @@ tracks:
 
       - time: "11:15 - 11:45"
         type: "Track Sessions"
-        speaker: "Nuno Ribeiro"
-        description: "Unblock Your PRs: AI-Powered CI Troubleshooting with Dagger"
+        speaker: ""
+        description: ""
 
       - time: "11:50 - 12:20"
         type: "Track Sessions"
-        speaker: "Sena Yakut"
-        description: "Oops, I Broke It Again: Practicing Safe Chaos in the Cloud"
+        speaker: ""
+        description: ""
 
       - time: "12:25 - 13:00"
         type: "Ignite Talks"
@@ -58,12 +61,12 @@ tracks:
 
       - time: "14:00 - 14:30"
         type: "Track Sessions"
-        speaker: "Timothy Mamo"
-        description: "How to Implement ${BUZZWORD}"
+        speaker: ""
+        description: ""
 
       - time: "14:35 - 15:15"
         type: "Keynote"
-        speaker: "Ajay Chankramath"
+        speaker: ""
         description: "Closing Keynote"
         shared: true
 
@@ -102,20 +105,20 @@ tracks:
     sessions:
       - time: "10:25 - 10:55"
         type: "Track Sessions"
-        speaker: "Ersel Yıldız"
-        description: "Migration Processes and Challenges Among Cloud Service Providers"
+        speaker: ""
+        description: ""
 
       - time: "11:15 - 11:45"
         type: "Track Sessions"
-        speaker: "Emin Alemdar"
-        description: "From Chaos to Control Without the Headaches: Unified Resource Orchestration with KRO"
+        speaker: ""
+        description: ""
 
       - time: "11:50 - 12:20"
         type: "Track Sessions"
-        speaker: "Furkan Türkal"
-        description: "From DevOps to AIOps: Kubernetes On-Call Alert Auto-Remediation with AI Workflows and MCP Server"
+        speaker: ""
+        description: ""
 
       - time: "14:00 - 14:30"
         type: "Track Sessions"
-        speaker: "Evren Pala"
-        description: "Mastering Kubernetes Network Policies: From Theory to Automated Practice"
+        speaker: ""
+        description: ""

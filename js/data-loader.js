@@ -9,7 +9,90 @@ document.addEventListener('DOMContentLoaded', function() {
     loadSpeakers();
     loadOrganizers();
     loadSchedule();
+    loadSponsors();
 });
+
+/**
+ * Resolve image path: if only a filename is given, prepend /images/speakers/
+ */
+function resolveImagePath(image) {
+    if (!image) return '/images/speakers/blank-speaker.png';
+    if (image.startsWith('/') || image.startsWith('http')) return image;
+    return `/images/speakers/${image}`;
+}
+
+/**
+ * Resolve sponsor image path: if only a filename is given, prepend /images/sponsors/
+ */
+function resolveSponsorImagePath(image) {
+    if (!image) return '';
+    if (image.startsWith('/') || image.startsWith('http')) return image;
+    return `/images/sponsors/${image}`;
+}
+
+/**
+ * Sponsors verilerini yükle ve render et
+ */
+async function loadSponsors() {
+    try {
+        const response = await fetch('data/sponsors.yaml');
+        const yamlText = await response.text();
+        const data = jsyaml.load(yamlText);
+
+        if (data.enabled === false) {
+            renderComingSoon('sponsors-coming-soon', 'Sponsors will be announced soon. Stay tuned!');
+            return;
+        }
+
+        renderSponsors(data.tiers || []);
+    } catch (error) {
+        console.error('Sponsors yüklenirken hata oluştu:', error);
+    }
+}
+
+/**
+ * Sponsor tier'larını HTML olarak render et
+ */
+function renderSponsors(tiers) {
+    const container = document.getElementById('sponsors-container');
+    if (!container) return;
+
+    let html = '';
+    tiers.forEach(tier => {
+        html += `<div class="row sponsors-wrap" style="padding-top: 40px;">
+            <div class="col-lg-12">
+                <h3 style="text-align: center; color: #FFFFFF; margin-bottom: 30px;">${tier.name}</h3>
+            </div>`;
+
+        (tier.sponsors || []).forEach(sponsor => {
+            const colClass = tier.col_class || 'col-md';
+            const width = sponsor.width || 200;
+            const image = resolveSponsorImagePath(sponsor.image);
+            html += `
+            <div class="${colClass}" style="display: flex; align-items: center; justify-content: center;">
+                <a href="${sponsor.url}" class="sponsors-logo" target="_blank">
+                    <img class="img-fluid" src="${image}" alt="${sponsor.name}" width="${width}">
+                </a>
+            </div>`;
+        });
+
+        html += '</div>';
+    });
+
+    container.innerHTML = html;
+}
+
+/**
+ * "Coming Soon" placeholder mesajını ilgili container'a render et
+ */
+function renderComingSoon(containerId, message) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = `
+        <div class="col-lg-8 mx-auto text-center" style="padding: 40px 0;">
+            <p style="color: #fff; font-size: 18px;">${message}</p>
+        </div>`;
+}
 
 /**
  * Magnific Popup'ı tüm speaker kartları için başlat
@@ -37,7 +120,12 @@ async function loadSpeakers() {
         const response = await fetch('data/speakers.yaml');
         const yamlText = await response.text();
         const data = jsyaml.load(yamlText);
-        
+
+        if (data.enabled === false) {
+            renderComingSoon('speakers-coming-soon', 'Speakers will be announced soon. Stay tuned!');
+            return;
+        }
+
         const allSpeakers = data.speakers || [];
         
         // Type'a göre ayır
@@ -108,6 +196,7 @@ function renderSpeakers(speakers, igniteSpeakers) {
  */
 function createSpeakerCard(speaker, uniqueId) {
     const popupId = `popup_${uniqueId}`;
+    const speakerImage = resolveImagePath(speaker.image);
     const companyText = speaker.company ? `<b>@${speaker.company}</b>` : '';
     const isIgnite = speaker.type === 'ignite';
     const isKeynote = speaker.type === 'keynote';
@@ -155,7 +244,7 @@ function createSpeakerCard(speaker, uniqueId) {
         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="400ms">
             <div class="ts-speaker white-text">
                 <div class="speaker-img">
-                    <img class="img-fluid" src="${speaker.image}" alt="${speaker.name}" onerror="this.src='/images/speakers/blank-speaker.png';">
+                    <img class="img-fluid" src="${speakerImage}" alt="${speaker.name}" onerror="this.src='/images/speakers/blank-speaker.png';">
                     <a href="#${popupId}" class="view-speaker ts-image-popup" data-effect="mfp-zoom-in">
                         <i class="icon icon-plus"></i>
                     </a>
@@ -169,7 +258,7 @@ function createSpeakerCard(speaker, uniqueId) {
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="ts-speaker-popup-img">
-                            <img src="${speaker.image}" alt="${speaker.name}" class="img-fluid" onerror="this.src='/images/speakers/blank-speaker.png';">
+                            <img src="${speakerImage}" alt="${speaker.name}" class="img-fluid" onerror="this.src='/images/speakers/blank-speaker.png';">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -205,13 +294,14 @@ function renderOrganizers(organizers) {
  * Organizer kartı HTML'i oluştur
  */
 function createOrganizerCard(organizer) {
+    const organizerImage = resolveImagePath(organizer.image);
     const companyText = organizer.company ? `<b>@${organizer.company}</b>` : '';
     
     return `
         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="400ms">
             <div class="ts-speaker white-text">
                 <div class="speaker-img">
-                    <img class="img-fluid" src="${organizer.image}" alt="${organizer.name}">
+                    <img class="img-fluid" src="${organizerImage}" alt="${organizer.name}">
                 </div>
                 <div class="ts-speaker-info">
                     <h3 class="ts-title" style="color: #ffffff;">${organizer.name}</h3>
@@ -239,7 +329,16 @@ async function loadSchedule() {
         const response = await fetch('data/schedule.yaml');
         const yamlText = await response.text();
         const data = jsyaml.load(yamlText);
-        
+
+        if (data.enabled === false) {
+            document.getElementById('schedule-full-content').style.display = 'none';
+            document.getElementById('schedule-coming-soon-wrapper').style.display = '';
+            renderComingSoon('schedule-coming-soon', 'Schedule will be announced soon. Stay tuned!');
+            return;
+        }
+
+        document.getElementById('schedule-coming-soon-wrapper').style.display = 'none';
+        document.getElementById('schedule-full-content').style.display = '';
         renderSchedule(data.tracks || []);
     } catch (error) {
         console.error('Schedule yüklenirken hata oluştu:', error);
@@ -251,7 +350,7 @@ async function loadSchedule() {
  */
 function getSpeakerImage(speakerName) {
     const speaker = speakersData.find(s => s.name === speakerName);
-    return speaker ? speaker.image : null;
+    return speaker ? resolveImagePath(speaker.image) : null;
 }
 
 /**
