@@ -1,0 +1,151 @@
+# DevOpsDays Istanbul 2026 - Speakers
+# type: keynote | speaker | ignite
+
+speakers:
+  # Keynote Speakers
+  - name: "Kief Morris"
+    type: keynote
+    title: "Distinguished Engineer"
+    company: "Thoughtworks"
+    image: "/images/speakers/kief_morris.jpeg"
+    bio: |
+      Author of Infrastructure as Code
+      Distinguished Engineer at Thoughtworks
+    social:
+      linkedin: "https://www.linkedin.com/in/kiefmorris/"
+      other: "https://bsky.app/profile/kief.com"
+      other_icon: "fa-cloud"
+
+  - name: "Ajay Chankramath"
+    type: keynote
+    title: "Founder and CEO"
+    company: "Platformetrics"
+    image: "/images/speakers/ajay_chankramath.png"
+    bio: |
+      Author of Effective Platform Engineering
+      Founder and CEO at Platformetrics
+    social:
+      linkedin: "https://www.linkedin.com/in/chankramath/"
+      other: "https://chankramath.com/"
+      other_icon: "fa-cloud"
+
+  # Regular Speakers
+  - name: "Emin Alemdar"
+    type: speaker
+    title: "CNCF Ambassador & Solutions Architect"
+    company: "Spacelift"
+    image: "/images/speakers/emin_alemdar.png"
+    session_name: "From Chaos to Control Without the Headaches: Unified Resource Orchestration with KRO"
+    bio: "Emin is working as a Solutions Architect and has undertaken tasks such as producing solutions related to Kubernetes, Cloud technologies, Infrastructure as Code and Cloud Native Transformation in general, and transferring best practices about these areas. He is a CNCF Ambassador and an AWS Container Hero."
+    social:
+      linkedin: "https://www.linkedin.com/in/emin-alemdar"
+      twitter: "https://x.com/alemdar_emin"
+
+  - name: "Cansu Kavılı Örnek"
+    type: speaker
+    title: "Principal AI Platform Architect"
+    company: "RedHat"
+    image: "/images/speakers/cansu_kavilli_ornek.png"
+    session_name: "From YAML to Intelligence: Evolving Platform Engineering for the AI Era"
+    bio: "AI Platform Architect at Red Hat's Customer Adoption team, bridging DevOps & MLOps to build scalable AI platforms. Passionate about open source, platform engineering, and driving AI adoption. Focused on delivering real customer impact by aligning architectures with business outcomes."
+    social:
+      linkedin: "https://www.linkedin.com/in/cansukavili/"
+      twitter: "https://x.com/ckavili"
+
+  - name: "Timothy Mamo"
+    type: speaker
+    title: "Cloud Native Consultant"
+    company: ""
+    image: "/images/speakers/timothy_mamo.png"
+    session_name: "How to Implement ${BUZZWORD}"
+    bio: "Timothy Mamo loves to help growing companies make the most of the cloud by focusing on Cloud Native technologies and processes. He's had a varied experience, from studying aerospace engineering and working in the automotive industry before moving into the world of Cloud. He enjoys working and helping others improve and understand, at times with some Mediterranean gusto."
+    social:
+      linkedin: "https://www.linkedin.com/in/timothymamo/"
+
+  - name: "Evren Pala"
+    type: speaker
+    title: "Founding Engineer"
+    company: "Datapakt"
+    image: "/images/speakers/evren_pala.png"
+    session_name: "Mastering Kubernetes Network Policies: From Theory to Automated Practice"
+    bio: "Evren Pala is a Software Engineer. He has implemented Kubernetes network policies across multiple production environments and specializes in making complex security concepts accessible to engineering teams. Evren is passionate about sharing practical knowledge that helps teams implement robust security without operational overhead."
+    social:
+      linkedin: "https://www.linkedin.com/in/evren-pala-958a4747/"
+
+  - name: "Nuno Ribeiro"
+    type: speaker
+    title: "DevOps Engineer"
+    company: "Critical TechWorks"
+    image: "/images/speakers/nuno_ribeiro.png"
+    session_name: "Unblock Your PRs: AI-Powered CI Troubleshooting with Dagger"
+    bio: "Hello there! My name is Nuno Ribeiro and for the better part of the last fifteen years I have worked as a Structural Civil Engineer. Feeling disgruntled with my professional life I made a career change and transitioned to the IT landscape and enrolled into a 9 month boot camp. Best decision ever During that time I fell in love with CI/CD and making sure all checks make it to Green. so I became a DevOps person."
+    social:
+      linkedin: "https://www.linkedin.com/in/nunofrribeiro"
+      twitter: "https://x.com/diasapensar"
+
+  - name: "Furkan Türkal"
+    type: speaker
+    title: "Platform Engineer"
+    company: "Trendyol"
+    image: "/images/speakers/furkan_turkal.png"
+    session_name: "From DevOps to AIOps: Kubernetes On-Call Alert Auto-Remediation with AI Workflows and MCP Server"
+    bio: "Furkan is a Platform Engineer at Trendyol. He works on infrastructure and platform management at scale, focusing on designing and implementing resilient, and reliable systems. He likes to design and implement new tech stacks with a deep focus on distributed and low-level systems. He is deeply interested in platform engineering, contributing to open source projects, engaging in communities, and project management. He has a strong passion for the CNCF ecosystem, is a Linux and Containers enthusiast, and is a previous KubeCon speaker and Docker Captain. Recently, he has been conducting research on Software Supply Chain Security."
+    social:
+      linkedin: "https://www.linkedin.com/in/furkanturkal"
+      twitter: "https://x.com/furkanturkaI"
+
+  - name: "Sena Yakut"
+    type: speaker
+    title: "AWS Security Hero & Cloud Security Architect"
+    company: "CyberWhiz"
+    image: "/images/speakers/sena_yakut.png"
+    session_name: "Oops, I Broke It Again: Practicing Safe Chaos in the Cloud"
+    bio: "Sena has experience in understanding and applying security concepts for cloud platforms. She defines security needs for cloud designs, provides security services on AWS, and manages risks for cloud solutions. Sena is recognized as an AWS Security Hero for her expertise. She is skilled in creating secure cloud architectures, implementing best practices, and ensuring compliance with security standards. She has a strong background in incident response, threat analysis, and vulnerability management. Sena is also proficient in automating security processes and integrating security tools to enhance the overall security posture of cloud systems."
+    social:
+      linkedin: "https://www.linkedin.com/in/sena-yakut/"
+      twitter: "https://x.com/sena_yakutt"
+
+  - name: "Ersel Yıldız"
+    type: speaker
+    title: "Platform Engineer"
+    company: "FLO"
+    image: "/images/speakers/ersel_yildiz.png"
+    session_name: "Migration Processes and Challenges Among Cloud Service Providers"
+    bio: "I have worked in many fields and departments in information technologies for over 14 years. From software to system administration, from devops to cloud platforms. I have been involved in the management, configuration and subsequent processes of countless projects and services. I continue to work actively with Kubernetes, OpenStack and container orchestration products and services, including cloud service providers such as Google Cloud Platform, Amazon Web Services, Yandex Cloud, DigitalOcean, Huawei Cloud, Cloud, Cloudflare."
+    social:
+      linkedin: "https://www.linkedin.com/in/erselbey/"
+      other: "https://link.erselbey.pro"
+      other_icon: "fa-twitter"
+
+  # Ignite Speakers
+  - name: "Ege Kayakiran"
+    type: ignite
+    title: "Chief Technology Officer"
+    company: "Talkremit"
+    image: "/images/speakers/ege_kayakiran.png"
+    session_name: "DevOps practices for Regulated Industries"
+    bio: "CTO with 20+ years of experience in fintech, banking, and e-commerce. I specialize in scaling teams, cloud-native architectures, and DevOps-driven innovation in regulated industries."
+
+  - name: "Ata Ağrı"
+    type: ignite
+    title: "AI Engineer"
+    company: "Kloia"
+    image: "/images/speakers/ata_agri.png"
+    session_name: "MCP and Multi Agent Collaboration"
+    bio: "Ata Ağrı is an AI Engineer at Kloia, where he designs and implements intelligent systems and multi-agent architectures. He holds a degree in Computer Science and Engineering from Sabanci University and specializes in building scalable AI solutions using modern approaches."
+
+  - name: "Fatih Kesgin"
+    type: ignite
+    title: "Engineering Practices Manager"
+    company: "Akbank"
+    image: "/images/speakers/fatih_kesgin.png"
+    session_name: "DevOps in the Age of AI"
+    bio: "Fatih Kesgin is a technology leader with over 20 years of experience. He has worked as a software engineer, team lead and manager positions for several technology organizations. His main interests are Devops, Sofware Engineering Practices and using AI effectively in software development."
+
+  - name: "Koray Oksay"
+    type: ignite
+    title: "Kubernetes Consultant / Trainer"
+    company: "Kubermatic"
+    image: "/images/speakers/koray_oksay.jpg"
+    session_name: "The Seven Deadly Sins of GitOps"
+    bio: "He works at Kubermatic as a Kubernetes Consultant and Trainer to help companies with their cloud-native journey. Before that, he worked for startup and enterprise companies in the advertising, banking, and telecom industries as SysAdmin, Application Admin, DevOps Engineer, and SRE for more than 20 years. He is a CNCF Ambassador and Kubestronaut. He organizes KCD Istanbul and DevOpsDays Istanbul events and other local meetups."

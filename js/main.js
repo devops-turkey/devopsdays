@@ -58,7 +58,7 @@ jQuery(function ($) {
 
    if ($('.countdown').length > 0) {
       $(".countdown").jCounter({
-         date: '01 November 2025 09:30:00',
+         date: '24 October 2026 09:30:00',
          fallback: function () {
             console.log("count finished!")
          }
