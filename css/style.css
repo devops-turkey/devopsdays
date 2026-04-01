@@ -1223,9 +1223,8 @@ img.pull-right {
 .hero-area.content-left .banner-item {
   margin: 100px 50px 0;
   min-height: 650px;
-  -webkit-box-shadow: 0px 100px 100px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 100px 100px 0px rgba(0, 0, 0, 0.2);
-  background-position: top center;
+  background-color: #161362;
+  background-position: center center;
 }
 
 .hero-area.content-left .banner-item .banner-content-wrap {
