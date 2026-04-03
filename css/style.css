@@ -444,6 +444,16 @@ img.pull-right {
   color: #fff;
 }
 
+/* Alternating dark sections — deeper shade than body #161362 */
+.section-dark {
+  background: #0f0d3a;
+}
+
+#schedule-coming-soon-wrapper.section-dark,
+#schedule-full-content.section-dark {
+  background: #0f0d3a;
+}
+
 .column-title {
   margin-bottom: 35px;
   line-height: 42px;
@@ -624,6 +634,8 @@ img.pull-right {
   top: 0;
   z-index: 2;
   height: auto;
+  /* Same bar as .header.sticky so the nav is dark at page top, not only after scroll */
+  background: rgba(26, 24, 49, 0.95);
 }
 
 .header.header-transparent .navbar-brand {
@@ -735,12 +747,12 @@ img.pull-right {
   top: 0;
   width: 100%;
   z-index: 99;
-  background: rgba(26, 24, 49, 0.95);
-  padding: 15px 0;
+  background: #1a1831;
+  padding: 0;
 }
 
 .header.sticky .navbar {
-  padding: 0;
+  padding: 10px 0;
 }
 
 .header.sticky.fade_down_effect {
@@ -1533,7 +1545,7 @@ img.pull-right {
 }
 
 .ts-intro.event-intro .single-intro-text:hover {
-  background: #120f4e;
+  background: transparent;
 }
 
 /*==========================
@@ -3216,7 +3228,7 @@ img.pull-right {
 }
 
 .ts-footer.ts-footer-item .footer-border {
-  border-top: 1px solid #2e2b72;
+  border-top: none;
   padding: 60px 0;
 }
 
@@ -3542,7 +3554,7 @@ img.pull-right {
 }
 
 .ts-sponsors.sponsors-border .sponsors-wrap {
-  border-bottom: 1px solid #2e2b72;
+  border-bottom: none;
 }
 
 /* Contact
