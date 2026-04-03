@@ -34,12 +34,12 @@ organizers:
     company: "GetYourGuide"
     image: "salih_emre.jpg"
 
-  - name: "Saha Özpınar"
-    title: ""
-    company: ""
-    image: "saha_ozpinar.png"
-
   - name: "Serhat Can"
     title: "Co-Founder"
     company: "JumpCloud"
     image: "serhat.png"
+
+  - name: "Saha Özpınar"
+    title: ""
+    company: ""
+    image: "saha_ozpinar.png"
