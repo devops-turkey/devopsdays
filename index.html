@@ -164,7 +164,7 @@
       </div>
     </section>
 
-    <section id="ts-speakers" class="ts-speakers">
+    <section id="ts-speakers" class="ts-speakers section-dark">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -181,36 +181,36 @@
       </div>
     </section>
 
-    <div id="schedule-coming-soon-wrapper" class="section-dark">
-      <section id="schedules" class="ts-schedule ts-schedule-white">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <h2 class="section-title white text-center">SCHEDULES</h2>
+    <div id="schedules">
+      <div id="schedule-coming-soon-wrapper">
+        <section class="ts-schedule ts-schedule-white">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <h2 class="section-title white text-center">SCHEDULES</h2>
+              </div>
             </div>
+            <div class="row" id="schedule-coming-soon"></div>
           </div>
-          <div class="row" id="schedule-coming-soon"></div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
 
-    <div id="schedule-full-content" class="section-dark">
+      <div id="schedule-full-content">
       <div class="container mt-3 d-block d-md-none">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2 class="section-title white text-center">SCHEDULES</h2>
           </div>
         </div>
-        <div class="schedule-title-wrapper">
-          <div class="extra-column"></div>
-          <div class="col-lg-8 mx-auto">
+        <div class="schedule-title-wrapper schedule-title-wrapper--mobile-tracks">
+          <div class="schedule-mobile-track-tab">
             <h2 class="section-title white track-clickable active" id="track-1-title" data-target="#track1">
-              Track - 1 <span style="font-size: 0.7em; opacity: 0.6; display: inline-block; vertical-align: sub; text-transform: none;">(English)</span>
+              Track 1 (English)
             </h2>
           </div>
-          <div class="col-lg-8 mx-auto">
+          <div class="schedule-mobile-track-tab">
             <h2 class="section-title white track-clickable" id="track-2-title" data-target="#track2">
-              Track - 2 <span style="font-size: 0.7em; opacity: 0.6; display: inline-block; vertical-align: sub; text-transform: none;">(Turkish)</span>
+              Track 2 (Turkish)
             </h2>
           </div>
         </div>
@@ -228,19 +228,6 @@
                 <h2 class="section-title white text-center">SCHEDULES</h2>
               </div>
             </div>
-            <div class="schedule-title-wrapper">
-              <div class="extra-column"></div>
-              <div class="col-lg-6">
-                <h2 class="section-title white">
-                  Track - 1 <span style="font-size: 0.7em; opacity: 0.6; display: inline-block; vertical-align: sub; text-transform: none;">(English)</span>
-                </h2>
-              </div>
-              <div class="col-lg-6">
-                <h2 class="section-title white">
-                  Track - 2 <span style="font-size: 0.7em; opacity: 0.6; display: inline-block; vertical-align: sub; text-transform: none;">(Turkish)</span>
-                </h2>
-              </div>
-            </div>
             <div class="row">
               <div class="col-lg-12">
                 <div class="tab-content schedule-tabs">
@@ -253,31 +240,35 @@
           </div>
         </section>
       </div>
+      </div>
     </div>
 
-    <section id="sponsors" class="ts-sponsors sponsors-border section-dark">
+    <section class="ts-sponsors sponsors-border section-dark" id="organizer-sponsors">
       <div class="container">
-        <div class="row sponsors-wrap" style="border: 0">
+        <div class="row sponsors-wrap">
           <div class="col-lg-8 mx-auto">
-            <h2 class="section-title white text-center">
-              <span></span>
-              ORGANIZER
-            </h2>
-          </div>
-          <div class="col-lg-12">
-            <a href="https://kommunity.com/devops-turkiye" class="sponsors-logo" target="_blank">
-              <img class="img-fluid" src="/images/sponsors/devops_turkey.png" alt="" width="280" style="margin-top: 0px;">
-            </a>
-          </div>
-        </div>
-
-        <div class="row sponsors-wrap" style="padding-top: 40px;">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="section-title white text-center">
+            <h2 id="sponsors" class="section-title white text-center sponsors-main-heading">
               <span></span>
               SPONSORS
             </h2>
           </div>
+        </div>
+
+        <div id="organizer" class="row sponsors-wrap sponsors-tier-block" style="border: 0">
+          <div class="col-lg-12 sponsors-tier-strip-wrap">
+            <div class="sponsors-tier-strip sponsors-tier-strip--organizer">
+              <h3 class="sponsors-tier-strip-title">Organizer</h3>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <a href="https://kommunity.com/devops-turkiye" class="sponsors-logo" target="_blank">
+              <img class="img-fluid" src="/images/sponsors/devops_turkey.png" alt="DevOps Turkey" width="280" style="margin-top: 0px;">
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12" id="sponsors-media"></div>
           <div class="col-lg-12" id="sponsors-coming-soon"></div>
           <div class="col-lg-12" id="sponsors-container"></div>
         </div>
@@ -288,7 +279,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="section-title white">Event Gallery</h2>
+            <h2 class="section-title white">EVENT GALLERY</h2>
             <div style="text-align: center; margin-top: 15px; margin-bottom: 30px;">
               <a href="https://flic.kr/ps/44eQRq" target="_blank" class="btn btn-primary">
 View All Photos
@@ -321,7 +312,7 @@ View All Photos
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2 class="section-title white text-center">Organizer Team</h2>
+            <h2 class="section-title white text-center">ORGANIZER TEAM</h2>
           </div>
         </div>
         <div class="row" id="organizers-container"></div>
@@ -336,7 +327,7 @@ View All Photos
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="section-title white">Past Events</h2>
+            <h2 class="section-title white">PAST EVENTS</h2>
           </div>
         </div>
         <div class="row">

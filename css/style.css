@@ -390,19 +390,19 @@ img.pull-right {
 .section-title:after,
 .column-title:after {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   content: '';
-  right: 0;
-  background-image: url(../images/shap/title.png);
-  background-repeat: no-repeat;
-  background-size: center center;
-  background-position: contain;
-  width: 70px;
-  height: 10px;
-  margin: auto auto 0;
+  width: 72px;
+  height: 3px;
+  margin: 0;
   top: auto;
   bottom: 0;
+  background: #e7015e;
+  background-image: none;
+  border-radius: 1px;
 }
 
 .section-title span,
@@ -431,11 +431,13 @@ img.pull-right {
 
 .section-title.white:after,
 .column-title.white:after {
-  background-image: url(../images/shap/title-white.png);
+  background: rgba(255, 255, 255, 0.9);
+  background-image: none;
 }
 
 .section-title.track-clickable.active:after {
-  background-image: url(../images/shap/title-red.png);
+  background: #e7015e;
+  background-image: none;
   color: #e7015e;
 }
 
@@ -449,10 +451,6 @@ img.pull-right {
   background: #0f0d3a;
 }
 
-#schedule-coming-soon-wrapper.section-dark,
-#schedule-full-content.section-dark {
-  background: #0f0d3a;
-}
 
 .column-title {
   margin-bottom: 35px;
@@ -465,7 +463,12 @@ img.pull-right {
 }
 
 .column-title:after {
+  left: 0;
   right: auto;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  margin-left: 0;
 }
 
 .ts-title {
@@ -1881,6 +1884,65 @@ img.pull-right {
   display: grid;
   grid-template-columns: auto auto auto;
 }
+
+/* Mobile: iki track sekmesi — kompakt başlık, hizalı grid */
+.schedule-title-wrapper.schedule-title-wrapper--mobile-tracks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.schedule-title-wrapper--mobile-tracks .section-title.white {
+  text-align: center;
+  padding-bottom: 14px;
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.schedule-title-wrapper--mobile-tracks .section-title.white:after {
+  width: 36px;
+  height: 2px;
+}
+
+/* Desktop tablo: başlık satırı veri satırlarıyla aynı flex/grid yapısı */
+#schedule-desktop-container .schedule-listing--table-head {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+#schedule-desktop-container .schedule-listing--table-head .schedule-slot-time {
+  padding: 14px 28px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  background: rgba(30, 26, 100, 0.98) !important;
+}
+
+#schedule-desktop-container .schedule-listing--table-head .schedule-head-cell {
+  padding: 14px 20px 14px 24px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: rgba(22, 18, 88, 0.75) !important;
+}
+
+#schedule-desktop-container .schedule-listing--table-head .schedule-slot-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.35;
+  text-align: center;
+}
+
 .schedule-slot-info-container {
   width: 100%;
   display: grid;
@@ -2022,12 +2084,17 @@ img.pull-right {
 
 .schedule-listing .schedule-slot-info {
   position: relative;
-  padding: 35px 20px 35px 120px;
+  padding: 35px 20px 35px 24px;
   border: none;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* Konuşmacı fotoğrafı varsa sol boşluk (avatar) */
+.schedule-listing .schedule-slot-info:has(.schedule-slot-speakers) {
+  padding-left: 120px;
 }
 
 .schedule-listing .schedule-slot-info .schedule-slot-speakers {
@@ -2082,6 +2149,65 @@ img.pull-right {
 .schedule-listing-btn {
   text-align: center;
   margin-top: 60px;
+}
+
+/* Schedule as table: clear columns and cell borders (desktop + mobile containers) */
+#schedule-desktop-container,
+#schedule-mobile-container .tab-pane {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(10, 8, 45, 0.45);
+  -webkit-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+#schedule-desktop-container .schedule-listing,
+#schedule-mobile-container .schedule-listing {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#schedule-desktop-container .schedule-listing:last-child,
+#schedule-mobile-container .tab-pane .schedule-listing:last-child {
+  border-bottom: none;
+}
+
+#schedule-desktop-container .schedule-slot-info-container {
+  gap: 0;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Track Sessions dışı: tek sütun, iki track sütununun tamamını kaplar */
+#schedule-desktop-container .schedule-slot-info-container--shared-row {
+  grid-template-columns: 1fr;
+}
+
+#schedule-desktop-container .schedule-slot-time {
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#schedule-desktop-container .schedule-slot-info:not(:first-child) {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#schedule-desktop-container .schedule-slot-info {
+  background: rgba(18, 15, 78, 0.25);
+}
+
+#schedule-mobile-container .schedule-listing .schedule-slot-time {
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#schedule-mobile-container .schedule-listing .schedule-slot-info {
+  border-left: none;
+  background: rgba(18, 15, 78, 0.2);
+}
+
+#schedule-mobile-container .schedule-listing:nth-of-type(even) .schedule-slot-info {
+  background: rgba(18, 15, 78, 0.12);
 }
 
 /* Hide inactive tabs completely to prevent space issues */
@@ -3551,10 +3677,50 @@ img.pull-right {
 
 .ts-sponsors.sponsors-border {
   padding: 0;
+  padding-top: 72px;
 }
 
 .ts-sponsors.sponsors-border .sponsors-wrap {
   border-bottom: none;
+}
+
+/* Nav hedefleri — sabit üst menü (hash; tıklamada js/main.js offset) */
+#about {
+  scroll-margin-top: 100px;
+}
+
+#schedules {
+  scroll-margin-top: 100px;
+}
+
+#sponsors.sponsors-main-heading {
+  scroll-margin-top: 100px;
+}
+
+.sponsors-tier-strip-wrap {
+  margin-bottom: 30px;
+}
+
+.sponsors-tier-strip {
+  padding: 12px 0;
+  text-align: center;
+}
+
+.sponsors-tier-strip-title {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.sponsors-tier-strip--organizer,
+.sponsors-tier-strip--platinum,
+.sponsors-tier-strip--gold,
+.sponsors-tier-strip--silver,
+.sponsors-tier-strip--media {
+  background: transparent;
 }
 
 /* Contact

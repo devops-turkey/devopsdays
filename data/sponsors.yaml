@@ -1,65 +1,62 @@
 # DevOpsDays Istanbul 2026 - Sponsors
-# enabled: true/false - when false, the sponsors section is hidden and a "coming soon" message is shown
-# image: just the filename is enough, /images/sponsors/ prefix is added automatically
-# width: logo width in pixels (optional, default: 200)
 #
-# Usage example:
+# enabled (global): true/false
+#   true  -> tiers are rendered
+#   false -> nothing is rendered, "coming soon" message is shown
+#
+# enabled (per tier): true/false (default: true)
+#   set to false to hide a specific tier without removing it
+#
+# type: tier category (platinum, gold, silver, media)
+#
+# width (required): logo width in pixels — controls logo size and how many fit per row
+#
+# Sponsors only need name, url, and image (filename under /images/sponsors/).
+#
+# Example:
 # tiers:
-#   - name: "Platinum Sponsors"
-#     col_class: "col-md-4"
+#   - name: "Media"
+#     type: media
+#     width: 200
+#     sponsors:
+#       - name: "Kube Events"
+#         url: "https://kube.events/"
+#         image: "kube_events.png"
+#
+#   - name: "Platinum"
+#     type: platinum
+#     width: 300
 #     sponsors:
 #       - name: "Acme Corp"
 #         url: "https://acmecorp.com/"
 #         image: "acme.png"
-#         width: 300
-#
-#   - name: "Gold Sponsors"
-#     col_class: "col-md"
-#     sponsors:
-#       - name: "BigTech"
-#         url: "https://bigtech.com/"
-#         image: "bigtech.png"
-#         width: 150
 
-enabled: false
+enabled: true
 
 tiers:
-  - name: "Platinum Sponsors"
-    col_class: "col-md-4"
+  - name: "Media"
+    type: media
+    width: 300
+    enabled: true
     sponsors:
-      - name: "Akbank"
-        url: "https://akbank.com/"
-        image: "akbank.png"
-        width: 400
-      - name: "Kloia"
-        url: "http://kloia.com/"
-        image: "kloia.png"
-        width: 150
-      - name: "BestCloudForMe"
-        url: "http://bestcloudfor.me/"
-        image: "bestcloudforme.png"
-        width: 400
+      - name: "Kube Events"
+        url: "https://kube.events/"
+        image: "kube_events.png"
 
-  - name: "Gold Sponsors"
-    col_class: "col-md"
-    sponsors:
-      - name: "AWS"
-        url: "https://aws.amazon.com/"
-        image: "aws.png"
-        width: 120
-      - name: "AXOFT"
-        url: "https://axoftsolutions.com/"
-        image: "axoft.png"
-        width: 190
+  - name: "Platinum"
+    type: platinum
+    width: 250
+    enabled: false
+    sponsors: []
 
-  - name: "Silver Sponsors"
-    col_class: "col-md"
-    sponsors:
-      - name: "PARNY"
-        url: "https://parny.io/"
-        image: "parny.png"
-        width: 150
-      - name: "TURKNET"
-        url: "https://turk.net/"
-        image: "turknet.png"
-        width: 120
+  - name: "Gold"
+    type: gold
+    width: 200
+    enabled: false
+    sponsors: []
+
+  - name: "Silver"
+    type: silver
+    width: 150
+    enabled: false
+    sponsors: []

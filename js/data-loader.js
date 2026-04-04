@@ -30,9 +30,7 @@ function resolveSponsorImagePath(image) {
     return `/images/sponsors/${image}`;
 }
 
-/**
- * Sponsors verilerini yükle ve render et
- */
+
 async function loadSponsors() {
     try {
         const response = await fetch('data/sponsors.yaml');
@@ -44,34 +42,39 @@ async function loadSponsors() {
             return;
         }
 
-        renderSponsors(data.tiers || []);
+        const tiers = (data.tiers || []).filter(t => t.enabled !== false);
+        const mediaTiers = tiers.filter(t => t.type === 'media');
+        const regularTiers = tiers.filter(t => t.type !== 'media');
+
+        renderSponsors(mediaTiers, 'sponsors-media');
+        renderSponsors(regularTiers, 'sponsors-container');
     } catch (error) {
         console.error('Sponsors yüklenirken hata oluştu:', error);
     }
 }
 
-/**
- * Sponsor tier'larını HTML olarak render et
- */
-function renderSponsors(tiers) {
-    const container = document.getElementById('sponsors-container');
+function renderSponsors(tiers, containerId) {
+    const container = document.getElementById(containerId);
     if (!container) return;
 
     let html = '';
     tiers.forEach(tier => {
-        html += `<div class="row sponsors-wrap" style="padding-top: 40px;">
-            <div class="col-lg-12">
-                <h3 style="text-align: center; color: #FFFFFF; margin-bottom: 30px;">${tier.name}</h3>
+        const width = tier.width;
+        const typeClass = tier.type ? ` sponsors-tier-strip--${tier.type}` : '';
+
+        html += `<div class="row sponsors-wrap sponsors-tier-block" style="padding-top: 40px; justify-content: center; flex-wrap: wrap;">
+            <div class="col-lg-12 sponsors-tier-strip-wrap">
+                <div class="sponsors-tier-strip${typeClass}">
+                    <h3 class="sponsors-tier-strip-title">${tier.name}</h3>
+                </div>
             </div>`;
 
         (tier.sponsors || []).forEach(sponsor => {
-            const colClass = tier.col_class || 'col-md';
-            const width = sponsor.width || 200;
             const image = resolveSponsorImagePath(sponsor.image);
             html += `
-            <div class="${colClass}" style="display: flex; align-items: center; justify-content: center;">
-                <a href="${sponsor.url}" class="sponsors-logo" target="_blank">
-                    <img class="img-fluid" src="${image}" alt="${sponsor.name}" width="${width}">
+            <div style="flex: 0 0 auto; padding: 0 15px; display: flex; align-items: center; justify-content: center;">
+                <a href="${sponsor.url}" class="sponsors-logo" target="_blank" rel="noopener noreferrer">
+                    <img src="${image}" alt="${sponsor.name}" style="width: ${width}px; max-width: 100%;">
                 </a>
             </div>`;
         });
@@ -398,13 +401,21 @@ function renderSchedule(tracks) {
 }
 
 /**
+ * İki dil/track paralel yürür: yalnızca type "Track Sessions" olan satırlar.
+ * Diğer tüm slotlar (kayıt, keynote, mola, ignite vb.) her iki track için ortaktır.
+ */
+function isParallelTrackSession(session) {
+    return session.type === 'Track Sessions';
+}
+
+/**
  * Mobile schedule HTML
  */
 function renderMobileSchedule(tracks) {
     let html = '';
     
-    // Track 1'deki shared session'ları al
-    const sharedSessions = tracks[0].sessions.filter(s => s.shared);
+    // Track 1'de track-özel olmayan (ortak) session'lar — Track 2 sekmesinde de listelenir
+    const sharedSessions = tracks[0].sessions.filter(s => !isParallelTrackSession(s));
     
     tracks.forEach((track, index) => {
         const isActive = index === 0 ? 'show active' : '';
@@ -421,12 +432,11 @@ function renderMobileSchedule(tracks) {
             // Track 2: Shared session'ları ve track'e özel session'ları birleştir
             const allSessions = [];
             
-            // Shared session'ları ekle - önemli olanlar için "Main Stage" notu
+            // Ortak program satırları: Track 2 sekmesinde ana salon (Main Stage) — paralel Türkçe oda değil
             sharedSessions.forEach(s => {
-                allSessions.push({ 
-                    ...s, 
-                    // Keynote, Ignite, Open Space ve speaker içeren session'larda Main Stage göster
-                    isMainStage: s.speaker || s.type === 'Keynote' || s.type === 'Ignite Talks' || s.type === 'Open Space'
+                allSessions.push({
+                    ...s,
+                    isMainStage: true
                 });
             });
             
@@ -457,6 +467,23 @@ function renderMobileSchedule(tracks) {
 }
 
 /**
+ * Oturum başlığı: boş speaker + eksik title durumunda "undefined" üretmez
+ */
+function getSessionTitle(session) {
+    const speaker = session.speaker != null ? String(session.speaker).trim() : '';
+    if (speaker) return speaker;
+    const title = session.title != null ? String(session.title).trim() : '';
+    if (title) return title;
+    const type = session.type != null ? String(session.type).trim() : '';
+    if (type) return type;
+    return 'Session';
+}
+
+function hasScheduleSpeaker(session) {
+    return session.speaker != null && String(session.speaker).trim() !== '';
+}
+
+/**
  * Desktop schedule HTML (yan yana görünüm)
  */
 function renderDesktopSchedule(tracks) {
@@ -471,7 +498,17 @@ function renderDesktopSchedule(tracks) {
         track2ByTime[session.time] = session;
     });
     
-    let html = '';
+    let html = `<div class="schedule-listing schedule-listing--table-head" role="row">
+            <div class="schedule-slot-time schedule-slot-time--head"><span>Time</span></div>
+            <div class="schedule-slot-info-container">
+                <div class="schedule-slot-info schedule-head-cell">
+                    <h3 class="schedule-slot-title">Track 1 (English)</h3>
+                </div>
+                <div class="schedule-slot-info schedule-head-cell">
+                    <h3 class="schedule-slot-title">Track 2 (Turkish)</h3>
+                </div>
+            </div>
+        </div>`;
     
     // Track 1'deki tüm session'ları işle
     for (let i = 0; i < track1.sessions.length; i++) {
@@ -483,17 +520,18 @@ function renderDesktopSchedule(tracks) {
                 <span>${session1.time}</span>
                 ${session1.type === 'Ignite Talks' ? 'Ignite' : ''}
             </div>
-            <div class="schedule-slot-info-container">`;
+            <div class="schedule-slot-info-container${isParallelTrackSession(session1) ? '' : ' schedule-slot-info-container--shared-row'}">`;
         
-        if (session1.shared) {
-            // Ortak session - Track 1 alanında göster, Track 2 boş
+        if (!isParallelTrackSession(session1)) {
+            // Ortak program: tek geniş hücre (Track 1 / 2 ayrımı yok)
             html += createDesktopSlotInfo(session1, false);
-            html += `<div class="schedule-slot-info empty-slot"></div>`;
         } else {
-            // Track'e özel session'lar - yan yana
+            // Paralel track oturumları — yan yana iki sütun
             html += createDesktopSlotInfo(session1, false);
             if (session2) {
                 html += createDesktopSlotInfo(session2, false);
+            } else {
+                html += `<div class="schedule-slot-info empty-slot" aria-hidden="true"></div>`;
             }
         }
         
@@ -516,7 +554,7 @@ function getIgniteSpeakersForSchedule() {
  * Tek bir schedule item HTML'i (mobile)
  */
 function createScheduleItem(session) {
-    const title = session.speaker || session.title;
+    const title = getSessionTitle(session);
     let description = session.description || '';
     
     // Note varsa ekle
@@ -542,7 +580,7 @@ function createScheduleItem(session) {
     }
     
     // Speaker varsa tıklanabilir yap
-    const popupId = session.speaker ? getSpeakerPopupId(session.speaker) : null;
+    const popupId = hasScheduleSpeaker(session) ? getSpeakerPopupId(session.speaker) : null;
     const titleHtml = popupId 
         ? `<a href="#${popupId}" class="ts-image-popup" data-effect="mfp-zoom-in" style="text-decoration: none; color: inherit;"><h3 class="schedule-slot-title" style="cursor: pointer;">${title}</h3></a>`
         : `<h3 class="schedule-slot-title">${title}</h3>`;
@@ -564,7 +602,7 @@ function createScheduleItem(session) {
  * Desktop slot info HTML
  */
 function createDesktopSlotInfo(session, isShared = false) {
-    const title = session.speaker || session.title;
+    const title = getSessionTitle(session);
     let description = session.description || '';
     const sharedClass = isShared ? ' shared-slot' : '';
     
@@ -587,10 +625,10 @@ function createDesktopSlotInfo(session, isShared = false) {
     }
     
     // Speaker varsa fotoğraf göster ve tıklanabilir yap
-    const speakerImage = session.speaker ? getSpeakerImage(session.speaker) : null;
-    const popupId = session.speaker ? getSpeakerPopupId(session.speaker) : null;
+    const speakerImage = hasScheduleSpeaker(session) ? getSpeakerImage(session.speaker) : null;
+    const popupId = hasScheduleSpeaker(session) ? getSpeakerPopupId(session.speaker) : null;
     
-    if (session.speaker && speakerImage && popupId) {
+    if (hasScheduleSpeaker(session) && speakerImage && popupId) {
         return `
             <div class="schedule-slot-info${sharedClass}">
                 <a href="#${popupId}" class="ts-image-popup" data-effect="mfp-zoom-in">
@@ -605,7 +643,7 @@ function createDesktopSlotInfo(session, isShared = false) {
             </div>`;
     }
     
-    if (session.speaker && speakerImage) {
+    if (hasScheduleSpeaker(session) && speakerImage) {
         return `
             <div class="schedule-slot-info${sharedClass}">
                 <img class="schedule-slot-speakers" src="${speakerImage}" alt="${session.speaker}">

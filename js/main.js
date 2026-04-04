@@ -305,9 +305,19 @@ jQuery(function ($) {
     if ($('.header .ts-scroll').length > 0) {
       $('.header  .ts-scroll').on('click', function (e) {
          e.preventDefault();
+         var href = $(this).attr('href');
+         if (!href || href.charAt(0) !== '#') return false;
+         var $target = $(href);
+         if ($target.length === 0) return false;
+         var headerH = $('.header').outerHeight() || 90;
+         var gap = 15;
+
+         var $heading = $target.find('.section-title:visible, h2:visible, h3:visible').first();
+         var scrollTo = ($heading.length ? $heading : $target).offset().top;
+
          $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top - 85
-         }, 1000, 'linear');
+            scrollTop: Math.max(0, scrollTo - headerH - gap)
+         }, 400, 'swing');
          return false;
       });
    }

@@ -442,6 +442,9 @@ small device /mobile sm and large
     min-height: 100px; }
   .ts-sponsors.sponsors-border {
     padding: 40px 0; }
+  .sponsors-tier-strip-title {
+    font-size: 26px;
+    letter-spacing: 2px; }
   .ts-speakers,
   section,
   .ts-intro-item {
@@ -504,8 +507,9 @@ small device /mobile sm and large
       min-width: 38%;
     }
     .schedule-listing .schedule-slot-info {
-      padding: 35px 40px 35px 35px;
-      border-left: 1px dashed #171298; }
+      padding: 35px 40px 35px 35px; }
+    #schedule-mobile-container .schedule-listing .schedule-slot-info {
+      border-left: none; }
       .schedule-listing .schedule-slot-info .schedule-slot-speakers {
         display: none; }
   .schedule-listing-btn {
@@ -675,6 +679,9 @@ small device /mobile sm and large
   }
   .schedule-title-wrapper {
     grid-template-columns: auto auto;
+  }
+  .schedule-title-wrapper.schedule-title-wrapper--mobile-tracks {
+    grid-template-columns: 1fr 1fr;
   }
   .extra-column{
     display: none;
