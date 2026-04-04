@@ -3,7 +3,7 @@
 # shared: true sessions span both tracks (rendered as a single wide card)
 # enabled: true/false - when false, the schedule section is hidden and a "coming soon" message is shown
 
-enabled: true
+enabled: false
 
 tracks:
   - name: "Track 1"
