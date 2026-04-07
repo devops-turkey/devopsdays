@@ -47,6 +47,10 @@ async function loadSponsors() {
         const regularTiers = tiers.filter(t => t.type !== 'media');
 
         renderSponsors(mediaTiers, 'sponsors-media');
+        if (mediaTiers.length > 0 && regularTiers.length > 0) {
+            const divider = document.getElementById('sponsors-media-divider');
+            if (divider) divider.style.display = '';
+        }
         renderSponsors(regularTiers, 'sponsors-container');
     } catch (error) {
         console.error('Sponsors yüklenirken hata oluştu:', error);
@@ -58,9 +62,13 @@ function renderSponsors(tiers, containerId) {
     if (!container) return;
 
     let html = '';
-    tiers.forEach(tier => {
+    tiers.forEach((tier, index) => {
         const width = tier.width;
         const typeClass = tier.type ? ` sponsors-tier-strip--${tier.type}` : '';
+
+        if (index > 0) {
+            html += `<div class="col-lg-12" style="padding: 0 15px;"><hr style="border-color: rgba(255,255,255,0.15); margin: 10px 0;"></div>`;
+        }
 
         html += `<div class="row sponsors-wrap sponsors-tier-block" style="padding-top: 40px; justify-content: center; flex-wrap: wrap;">
             <div class="col-lg-12 sponsors-tier-strip-wrap">
@@ -92,7 +100,7 @@ function renderComingSoon(containerId, message) {
     const container = document.getElementById(containerId);
     if (!container) return;
     container.innerHTML = `
-        <div class="col-lg-8 mx-auto text-center" style="padding: 40px 0;">
+        <div class="col-lg-8 mx-auto text-center" style="padding: 10px 0;">
             <p style="color: #fff; font-size: 18px;">${message}</p>
         </div>`;
 }
