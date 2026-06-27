@@ -43,11 +43,8 @@ async function loadSponsors() {
         }
 
         const tiers = (data.tiers || []).filter(t => t.enabled !== false);
-        const mediaTiers = tiers.filter(t => t.type === 'media');
-        const regularTiers = tiers.filter(t => t.type !== 'media');
 
-        renderSponsors(mediaTiers, 'sponsors-media');
-        renderSponsors(regularTiers, 'sponsors-container');
+        renderSponsors(tiers, 'sponsors-container');
     } catch (error) {
         console.error('Sponsors yüklenirken hata oluştu:', error);
     }

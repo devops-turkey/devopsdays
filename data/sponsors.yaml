@@ -34,24 +34,15 @@
 enabled: true
 
 tiers:
-  - name: "Media"
-    type: media
-    width: 180
-    enabled: true
-    sponsors:
-      - name: "Kube Events"
-        url: "https://kube.events/"
-        image: "kube_events.png"
-
   - name: "Platinum"
     type: platinum
-    width: 280
+    width: 300
     enabled: false
     sponsors: []
 
   - name: "Gold"
     type: gold
-    width: 220
+    width: 250
     enabled: true
     sponsors:
       - name: "Kloia"
@@ -60,9 +51,18 @@ tiers:
 
   - name: "Silver"
     type: silver
-    width: 160
+    width: 200
     enabled: true
     sponsors:
       - name: "KubeAdapt"
         url: "https://kubeadapt.io/"
         image: "kubeadapt.png"
+
+  - name: "Media"
+    type: media
+    width: 180
+    enabled: true
+    sponsors:
+      - name: "Kube Events"
+        url: "https://kube.events/"
+        image: "kube_events.png"
