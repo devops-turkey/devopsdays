@@ -47,10 +47,6 @@ async function loadSponsors() {
         const regularTiers = tiers.filter(t => t.type !== 'media');
 
         renderSponsors(mediaTiers, 'sponsors-media');
-        if (mediaTiers.length > 0 && regularTiers.length > 0) {
-            const divider = document.getElementById('sponsors-media-divider');
-            if (divider) divider.style.display = '';
-        }
         renderSponsors(regularTiers, 'sponsors-container');
     } catch (error) {
         console.error('Sponsors yüklenirken hata oluştu:', error);
@@ -66,16 +62,13 @@ function renderSponsors(tiers, containerId) {
         const width = tier.width;
         const typeClass = tier.type ? ` sponsors-tier-strip--${tier.type}` : '';
 
-        if (index > 0) {
-            html += `<div class="col-lg-12" style="padding: 0 15px;"><hr style="border-color: rgba(255,255,255,0.15); margin: 10px 0;"></div>`;
-        }
-
         html += `<div class="row sponsors-wrap sponsors-tier-block" style="padding-top: 40px; justify-content: center; flex-wrap: wrap;">
-            <div class="col-lg-12 sponsors-tier-strip-wrap">
+            <div class="col-lg-12 sponsors-tier-strip-wrap" style="margin-bottom: 0;">
                 <div class="sponsors-tier-strip${typeClass}">
                     <h3 class="sponsors-tier-strip-title">${tier.name}</h3>
                 </div>
-            </div>`;
+            </div>
+            <div class="col-lg-12" style="padding: 0 15px;"><hr style="border-color: rgba(255,255,255,0.15); margin: 8px 0 30px;"></div>`;
 
         (tier.sponsors || []).forEach(sponsor => {
             const image = resolveSponsorImagePath(sponsor.image);

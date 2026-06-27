@@ -3666,13 +3666,13 @@ img.pull-right {
 
 .ts-sponsors .sponsors-logo img {
   cursor: pointer;
-  /*-webkit-filter: grayscale(100%);
-  filter: grayscale(100%);*/
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 6px;
 }
 
 .ts-sponsors .sponsors-logo:hover img {
-  /*-webkit-filter: none;
-  filter: none;*/
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .ts-sponsors.sponsors-border {
