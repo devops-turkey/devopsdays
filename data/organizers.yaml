@@ -1,7 +1,7 @@
 organizers:
   - name: "Batuhan Apaydın"
-    title: "Platform Engineer"
-    company: "Trendyol"
+    title: "Software Engineer"
+    company: "Chainguard"
     image: "batuhan_apaydin.png"
 
   - name: "Derya Sezen"
@@ -15,8 +15,8 @@ organizers:
     image: "dogukan_turan.jpg"
 
   - name: "Koray Oksay"
-    title: "Kubernetes Consultant"
-    company: "Kubermatic"
+    title: "CNCF Ambassador | Platform Engineering Ambassador"
+    company: ""
     image: "koray_oksay.jpg"
 
   - name: "Can Gürdal"

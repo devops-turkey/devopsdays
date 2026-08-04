@@ -19,3 +19,68 @@ speakers:
       linkedin: "https://www.linkedin.com/in/michaelcote/"
       other: "https://cote.io/"
       other_icon: "fa-cloud"
+
+  # Regular Speakers
+  - name: "Alexandre-Xavier Labonté-Lamoureux"
+    type: speaker
+    title: "AppSec/DevSecOps Consultant"
+    company: "Arctiq"
+    image: "alexandre_xavier.jpeg"
+    bio: ""
+
+  - name: "Batuhan Apaydın"
+    type: speaker
+    title: "Software Engineer"
+    company: "Chainguard"
+    image: "batuhan_apaydin.png"
+    bio: ""
+
+  - name: "Bugra Cakmak"
+    type: speaker
+    title: "Site Reliability Engineer"
+    company: "Intertech"
+    image: "bugra_cakmak.jpeg"
+    bio: ""
+
+  - name: "Diana Todea"
+    type: speaker
+    title: "Head of Developer Relations Engineering"
+    company: "VictoriaMetrics"
+    image: "diana_todea.jpeg"
+    bio: ""
+
+  - name: "Ioanna Armouti"
+    type: speaker
+    title: "Senior Software Engineer"
+    company: "Grafana Labs"
+    image: "ioanna_armouti.jpeg"
+    bio: ""
+
+  - name: "Mehmet Hilmi Emel"
+    type: speaker
+    title: "AI/MLOps Engineer"
+    company: "ACEDEMAND IT"
+    image: "mehmet_hilmi_emel.jpeg"
+    bio: ""
+
+  - name: "Mert Polat"
+    type: speaker
+    title: "SRE/Chaos Engineer @Intertech"
+    company: "Intertech"
+    image: "mert_polat.jpeg"
+    bio: ""
+
+  - name: "Nora Shannon Johnson"
+    type: speaker
+    title: "Solutions Architect"
+    company: "AWS"
+    image: "nora_shannon_johnson.jpeg"
+    bio: ""
+
+  # Ignite Speakers
+  - name: "Ege Kayakiran"
+    type: ignite
+    title: "Director of Software Development & AI"
+    company: "Sahibinden"
+    image: "ege_kayakiran.png"
+    bio: ""
