@@ -26,7 +26,9 @@ speakers:
     title: "AppSec/DevSecOps Consultant"
     company: "Arctiq"
     image: "alexandre_xavier.jpeg"
-    bio: ""
+    bio: "Alexandre-Xavier Labonté-Lamoureux is a passionate IT professional and DevSecOps advocate based in Montreal, with over eight years of experience spanning DevOps, system administration, and cybersecurity. At Arctiq, he helps organizations build secure, efficient software by advancing Application Security (AppSec), Developer Experience (DevEx), and Internal Developer Platforms. A long-time open-source advocate, he dedicated over six years to volunteering in technology and science clubs at his university, fostering a culture of curiosity and collaboration among like-minded students. 
+    
+    Deeply engaged in the cybersecurity community, Alexandre-Xavier has designed challenges for UnitedCTF, presented at Montréhack, and mentored Canadian student teams at international competitions including the European Cyber Security Challenge (ECSC) and the International Cybersecurity Challenge (ICC). His accolades include the Cybertalent award from École de Cybersécurité, wins at NorthSec and HackQc, and an OCTAS award for leading an innovative domotics project. A lifelong learner currently pursuing a Master's in Software Engineering at ÉTS with a focus on Internal Developer Platforms, Alexandre-Xavier holds knowledge sharing and developer experience at the core of everything he does."
 
   - name: "Batuhan Apaydın"
     type: speaker
@@ -47,40 +49,54 @@ speakers:
     title: "Head of Developer Relations Engineering"
     company: "VictoriaMetrics"
     image: "diana_todea.jpeg"
-    bio: ""
+    bio: "Diana is a Developer Experience Engineer at VictoriaMetrics. She has worked as a Senior Site Reliability Engineer focused on Observability. She is an active member of the OpenTelemetry CNCF open source project, co-organizer of Cloud Native Days Romania, co-lead of neurodiversity working group (part of CNCF initiative merge-forward) and supports underrepresented groups in tech."
 
   - name: "Ioanna Armouti"
     type: speaker
     title: "Senior Software Engineer"
     company: "Grafana Labs"
     image: "ioanna_armouti.jpeg"
-    bio: ""
+    bio: "I'm a senior software engineer at Grafana Labs, working in the AI department on Grafana Assistant and its agentic capabilities. Over 3+ years at Grafana, first on the machine learning team, now in AI. I've focused on building AI tooling that SREs and on-call engineers actually use day-to-day. Before Grafana, I spent several years as a software engineer in the green energy industry, a space I still care deeply about."
 
   - name: "Mehmet Hilmi Emel"
     type: speaker
     title: "AI/MLOps Engineer"
     company: "ACEDEMAND IT"
     image: "mehmet_hilmi_emel.jpeg"
-    bio: ""
+    bio: "Mehmet Hilmi Emel is a AI Engineer and Google Cloud GenAI Champion specializing in scalable Generative AI systems and Cloud-Native architectures.
+
+    Currently working at Acedemand (Google Cloud Premier Partner), Mehmet bridges the gap between deep theoretical AI—understanding Transformer attention mechanisms and matrix operations—and production engineering. He has extensive experience in orchestrating distributed training pipelines using Ray on Kubernetes.
+
+    Mehmet is deeply invested in the open-source ecosystem; he architects sophisticated agentic AI workflows using frameworks like LangChain and the Google GenAI SDK. He further empowers these autonomous systems by implementing open standards such as the Agent-to-Agent (A2A) and Model Context Protocol (MCP) for robust interoperability.
+
+    An active voice in the global community, Mehmet is a returning speaker at Linux Foundation events, having notably presented at the Open Source Summit in South Korea. Beyond the stage, he is a tech content creator on YouTube, where he shares hands-on tutorials on building end-to-end AI solutions. He is based in Istanbul, Türkiye."
 
   - name: "Mert Polat"
     type: speaker
     title: "SRE/Chaos Engineer @Intertech"
     company: "Intertech"
     image: "mert_polat.jpeg"
-    bio: ""
+    bio: "I'm an Expert SRE and Chaos Engineer at Intertech (DenizBank / Emirates NBD Group) and the LitmusChaos Turkey Chapter Lead under CNCF. I organize local meetups, talks, and knowledge-sharing sessions to grow the chaos engineering community in Turkey. With 50+ conference talks at events including SREday London, DevFest, and IEEE chapters, I focus on building resilient systems — and I've responsibly disclosed vulnerabilities across multiple CNCF projects including LitmusChaos, KEDA, and Longhorn."
 
   - name: "Nora Shannon Johnson"
     type: speaker
     title: "Solutions Architect"
     company: "AWS"
     image: "nora_shannon_johnson.jpeg"
-    bio: ""
+    bio: "Nora Shannon Johnson is a Solutions Architect at Amazon, where she advises Fortune 500 companies and leading enterprises on cloud architecture and generative AI strategy. She specializes in designing scalable solutions for media and entertainment, financial services, healthcare, and retail organizations. Previously, Nora worked as an engineer and consultant across DevOps, Financial Technology, industrial AI/ML, and Educational Technology in the United States, Europe, and Latin America. She holds degrees from Columbia University and speaks Portuguese, Spanish, and Chinese."
 
   # Ignite Speakers
   - name: "Ege Kayakiran"
-    type: ignite
+    type: speaker
     title: "Director of Software Development & AI"
     company: "Sahibinden"
     image: "ege_kayakiran.png"
-    bio: ""
+    bio: "Servant Leader with over 22 years of hands-on experience, including 8+ years in senior technology leadership roles such as CTO, Director, and Principal Architect across Fintech, Banking, E-Commerce, and AI.
+
+    Proven ability to build and lead distributed, cross-cultural engineering teams across the UK, Turkey, Ukraine, Poland, Bulgaria, Kosovo, India, and Africa, consistently delivering business-critical systems in highly regulated environments (FCA, EMI, PCI-DSS, SOX, ISO-27001).
+
+    Experienced in driving end-to-end digital transformations: from monolith to microservices, Java transitions, DevOps automation, and AI-Assisted Development—always with a strong focus on scalability, compliance, and team empowerment.
+
+    Consultancy and leadership style is rooted in a deep understanding of software architecture, Agile delivery, and real-world business needs—stepping in when needed as an architect, strategist, or hands-on builder.
+
+    Thrives in environments where technology is not just code, but a driver of innovation and growth."
