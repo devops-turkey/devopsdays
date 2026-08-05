@@ -27,3 +27,4 @@ vendor/
 coverage/
 .cache/
 tmp/
+CLAUDE.md
