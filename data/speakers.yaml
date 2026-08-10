@@ -73,7 +73,7 @@ speakers:
 
   - name: "Mert Polat"
     type: speaker
-    title: "SRE/Chaos Engineer @Intertech"
+    title: "Litmus Chaos Turkey Chapter Lead | Chaos Engineer & SRE"
     company: "Intertech"
     image: "mert_polat.jpeg"
     bio: "I'm an Expert SRE and Chaos Engineer at Intertech (DenizBank / Emirates NBD Group) and the LitmusChaos Turkey Chapter Lead under CNCF. I organize local meetups, talks, and knowledge-sharing sessions to grow the chaos engineering community in Turkey. With 50+ conference talks at events including SREday London, DevFest, and IEEE chapters, I focus on building resilient systems — and I've responsibly disclosed vulnerabilities across multiple CNCF projects including LitmusChaos, KEDA, and Longhorn."
