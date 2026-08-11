@@ -3,7 +3,7 @@
 # shared: true sessions span both tracks (rendered as a single wide card)
 # enabled: true/false - when false, the schedule section is hidden and a "coming soon" message is shown
 
-enabled: false
+enabled: true
 
 tracks:
   - name: "Track 1"
@@ -18,39 +18,40 @@ tracks:
       - time: "9:00 - 9:40"
         type: "Opening"
         title: "Opening"
-        description: "Format & Sponsorship Pitches"
+        description: "Opening and Sponsorship Pitches"
         shared: true
 
       - time: "9:40 - 10:20"
         type: "Keynote"
-        speaker: ""
+        speaker: "Michael Coté"
         description: "Opening Keynote"
         shared: true
 
       - time: "10:25 - 10:55"
         type: "Track Sessions"
-        speaker: ""
-        description: ""
+        speaker: "Nora Shannon Johnson"
+        description: "Observability for Agentic AI: Instrumentation for MCP"
 
-      - time: "10:55 - 11:15"
+      - time: "10:55 - 11:20"
         type: "Coffee Break"
         title: "Coffee Break"
         description: "Networking and Refreshments"
         shared: true
 
-      - time: "11:15 - 11:45"
+      - time: "11:20 - 11:50"
         type: "Track Sessions"
-        speaker: ""
-        description: ""
+        speaker: "Alexandre-Xavier Labonté-Lamoureux"
+        description: "The End of YAML: How Code-Generated Pipelines Solve CI/CD's Maintainability Problem"
 
       - time: "11:50 - 12:20"
         type: "Track Sessions"
-        speaker: ""
-        description: ""
+        speaker: "Diana Todea"
+        description: "Observability's Sixth Sense: Detecting Anomalies in Metrics"
 
-      - time: "12:25 - 13:00"
+      - time: "12:20 - 13:00"
         type: "Ignite Talks"
         title: "Ignite Talks"
+        description: "TBC (To Be Confirmed)"
         shared: true
 
       - time: "13:00 - 14:00"
@@ -61,40 +62,36 @@ tracks:
 
       - time: "14:00 - 14:30"
         type: "Track Sessions"
-        speaker: ""
-        description: ""
+        speaker: "Ioanna Armouti"
+        description: "What It Actually Takes to Make an AI Assistant Useful When On Call"
 
       - time: "14:35 - 15:15"
         type: "Keynote"
-        speaker: ""
+        speaker: "Manuel Pais"
         description: "Closing Keynote"
         shared: true
 
-      - time: "15:15 - 15:30"
-        type: "Coffee Break"
-        title: "Coffee Break"
-        description: "Networking and Refreshments"
-        shared: true
-
-      - time: "15:30 - 16:00"
-        type: "Open Space"
+      - time: "15:15 - 15:50"
+        type: "Track Sessions"
         title: "Open Space Opening"
         description: "Open Space Session Introduction"
-        shared: true
 
-      - time: "16:00 - 16:30"
-        type: "Open Space"
+      - time: "15:50 - 16:20"
+        type: "Track Sessions"
+        title: "Coffee Break"
+        description: "Networking and Refreshments"
+
+      - time: "16:20 - 16:40"
+        type: "Track Sessions"
         title: "Open Space Discussions #1"
         description: "Open Space Round 1"
-        shared: true
 
-      - time: "16:30 - 17:00"
-        type: "Open Space"
+      - time: "16:40 - 17:10"
+        type: "Track Sessions"
         title: "Open Space Discussions #2"
         description: "Open Space Round 2"
-        shared: true
 
-      - time: "17:00 - 17:30"
+      - time: "17:10 - 17:40"
         type: "Closing"
         title: "Raffle + Closing"
         description: "Prize Draw and Closing Remarks"
@@ -105,20 +102,40 @@ tracks:
     sessions:
       - time: "10:25 - 10:55"
         type: "Track Sessions"
-        speaker: ""
-        description: ""
+        speaker: "Mert Polat, Buğra Çakmak"
+        description: "The Day We Killed 100% of Our Pods: Self-Service Chaos Engineering for 1000+ Microservices at a Bank"
 
-      - time: "11:15 - 11:45"
+      - time: "11:20 - 11:50"
         type: "Track Sessions"
-        speaker: ""
-        description: ""
+        speaker: "Cansu Kavılı Örnek"
+        description: "Hack Me If You Can: Designing Unbreakable LLM Guardrails"
 
       - time: "11:50 - 12:20"
         type: "Track Sessions"
-        speaker: ""
-        description: ""
+        speaker: "Ege Kayakiran"
+        description: "Agentic Systems: Multi-Agent Orchestration & Compliance in Regulated Environments"
 
       - time: "14:00 - 14:30"
         type: "Track Sessions"
-        speaker: ""
-        description: ""
+        speaker: "Florian Nowarre"
+        description: "How I Failed to Build a Platform Team (And What I'd Do Differently)"
+
+      - time: "15:15 - 15:50"
+        type: "Workshop"
+        title: "Workshop"
+        description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
+
+      - time: "15:50 - 16:20"
+        type: "Workshop"
+        title: "Workshop"
+        description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
+
+      - time: "16:20 - 16:40"
+        type: "Workshop"
+        title: "Workshop"
+        description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
+
+      - time: "16:40 - 17:10"
+        type: "Workshop"
+        title: "Workshop"
+        description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"

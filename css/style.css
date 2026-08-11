@@ -2093,7 +2093,8 @@ img.pull-right {
 }
 
 /* Konuşmacı fotoğrafı varsa sol boşluk (avatar) */
-.schedule-listing .schedule-slot-info:has(.schedule-slot-speakers) {
+.schedule-listing .schedule-slot-info:has(.schedule-slot-speakers),
+.schedule-listing .schedule-slot-info:has(.schedule-slot-speakers-group) {
   padding-left: 120px;
 }
 
@@ -2107,6 +2108,30 @@ img.pull-right {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -ms-border-radius: 50%;
+}
+
+/* Birden fazla konuşmacılı oturumlarda (ör. co-presented talk) üst üste binen avatar grubu */
+.schedule-listing .schedule-slot-info .schedule-slot-speakers-group {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.schedule-listing .schedule-slot-info .schedule-slot-speakers-group img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border: 2px solid #100d4a;
+  margin-left: -18px;
+}
+
+.schedule-listing .schedule-slot-info .schedule-slot-speakers-group a:first-child img {
+  margin-left: 0;
 }
 
 .schedule-listing .schedule-slot-info .schedule-slot-title {

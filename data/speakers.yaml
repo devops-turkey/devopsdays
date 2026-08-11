@@ -20,14 +20,28 @@ speakers:
       other: "https://cote.io/"
       other_icon: "fa-cloud"
 
+  - name: "Manuel Pais"
+    type: keynote
+    title: "Co-Author, Team Topologies"
+    company: ""
+    image: "manuel-pais.png"
+    bio: |
+      Pais is a DevOps and Delivery Coach and Consultant, focused on teams and flow first. He helps organizations adopt test automation and continuous delivery, as well as understand DevOps from both technical and human perspectives.
+
+      He is a regular speaker and author — published on InfoQ, DZone, and TechBeacon — on DevOps and Continuous Delivery, and co-author of the book Team Guide to Software Releasability.
+    social:
+      linkedin: "https://www.linkedin.com/in/manuelpais/"
+      other: "https://www.manuelpais.net/"
+      other_icon: "fa-globe"
+
   # Regular Speakers
   - name: "Alexandre-Xavier Labonté-Lamoureux"
     type: speaker
     title: "AppSec/DevSecOps Consultant"
     company: "Arctiq"
     image: "alexandre_xavier.jpeg"
-    bio: "Alexandre-Xavier Labonté-Lamoureux is a passionate IT professional and DevSecOps advocate based in Montreal, with over eight years of experience spanning DevOps, system administration, and cybersecurity. At Arctiq, he helps organizations build secure, efficient software by advancing Application Security (AppSec), Developer Experience (DevEx), and Internal Developer Platforms. A long-time open-source advocate, he dedicated over six years to volunteering in technology and science clubs at his university, fostering a culture of curiosity and collaboration among like-minded students. 
-    
+    bio: "Alexandre-Xavier Labonté-Lamoureux is a passionate IT professional and DevSecOps advocate based in Montreal, with over eight years of experience spanning DevOps, system administration, and cybersecurity. At Arctiq, he helps organizations build secure, efficient software by advancing Application Security (AppSec), Developer Experience (DevEx), and Internal Developer Platforms. A long-time open-source advocate, he dedicated over six years to volunteering in technology and science clubs at his university, fostering a culture of curiosity and collaboration among like-minded students.
+
     Deeply engaged in the cybersecurity community, Alexandre-Xavier has designed challenges for UnitedCTF, presented at Montréhack, and mentored Canadian student teams at international competitions including the European Cyber Security Challenge (ECSC) and the International Cybersecurity Challenge (ICC). His accolades include the Cybertalent award from École de Cybersécurité, wins at NorthSec and HackQc, and an OCTAS award for leading an innovative domotics project. A lifelong learner currently pursuing a Master's in Software Engineering at ÉTS with a focus on Internal Developer Platforms, Alexandre-Xavier holds knowledge sharing and developer experience at the core of everything he does."
 
   - name: "Batuhan Apaydın"
@@ -37,12 +51,19 @@ speakers:
     image: "batuhan_apaydin.png"
     bio: ""
 
-  - name: "Bugra Cakmak"
+  - name: "Buğra Çakmak"
     type: speaker
     title: "Site Reliability Engineer"
     company: "Intertech"
     image: "bugra_cakmak.jpeg"
     bio: ""
+
+  - name: "Cansu Kavılı Örnek"
+    type: speaker
+    title: "Principal AI Platform Architect"
+    company: "Red Hat"
+    image: "cansu_kavilli_ornek.png"
+    bio: "AI Platform Architect, bridging DevOps & MLOps to build scalable AI platforms. Passionate about open source, platform engineering, and driving AI adoption. Focused on delivering real customer impact by aligning architectures with business outcomes ✨"
 
   - name: "Diana Todea"
     type: speaker
@@ -50,6 +71,35 @@ speakers:
     company: "VictoriaMetrics"
     image: "diana_todea.jpeg"
     bio: "Diana is a Developer Experience Engineer at VictoriaMetrics. She has worked as a Senior Site Reliability Engineer focused on Observability. She is an active member of the OpenTelemetry CNCF open source project, co-organizer of Cloud Native Days Romania, co-lead of neurodiversity working group (part of CNCF initiative merge-forward) and supports underrepresented groups in tech."
+
+  - name: "Ege Kayakiran"
+    type: speaker
+    title: "Director of Software Development & AI"
+    company: "Sahibinden"
+    image: "ege_kayakiran.png"
+    bio: "Servant Leader with over 22 years of hands-on experience, including 8+ years in senior technology leadership roles such as CTO, Director, and Principal Architect across Fintech, Banking, E-Commerce, and AI.
+
+    Proven ability to build and lead distributed, cross-cultural engineering teams across the UK, Turkey, Ukraine, Poland, Bulgaria, Kosovo, India, and Africa, consistently delivering business-critical systems in highly regulated environments (FCA, EMI, PCI-DSS, SOX, ISO-27001).
+
+    Experienced in driving end-to-end digital transformations: from monolith to microservices, Java transitions, DevOps automation, and AI-Assisted Development—always with a strong focus on scalability, compliance, and team empowerment.
+
+    Consultancy and leadership style is rooted in a deep understanding of software architecture, Agile delivery, and real-world business needs—stepping in when needed as an architect, strategist, or hands-on builder.
+
+    Thrives in environments where technology is not just code, but a driver of innovation and growth."
+
+  - name: "Florian Nowarre"
+    type: speaker
+    title: "Senior Cloud Solutions Engineer"
+    company: "meshcloud"
+    image: "florian-nowarre.png"
+    session_name: "How I Failed to Build a Platform Team (And What I'd Do Differently)"
+    bio: "I'm a Senior Cloud Solutions Engineer at meshcloud, currently part of the Customer Success team. My main focus these days is building integrations for our SaaS platform, meshStack, primarily using Terraform.
+
+    Before that, I spent time on the SRE team, where I got deep into Kubernetes, plus earlier infrastructure automation tools like Puppet and Ansible — basically anything that helps automate infrastructure and build self-service capabilities and marketplaces."
+    social:
+      linkedin: "https://www.linkedin.com/in/florian-nowarre-18ab16160/"
+      other: "https://github.com/florianow"
+      other_icon: "fa-github"
 
   - name: "Ioanna Armouti"
     type: speaker
@@ -85,18 +135,3 @@ speakers:
     image: "nora_shannon_johnson.jpeg"
     bio: "Nora Shannon Johnson is a Solutions Architect at Amazon, where she advises Fortune 500 companies and leading enterprises on cloud architecture and generative AI strategy. She specializes in designing scalable solutions for media and entertainment, financial services, healthcare, and retail organizations. Previously, Nora worked as an engineer and consultant across DevOps, Financial Technology, industrial AI/ML, and Educational Technology in the United States, Europe, and Latin America. She holds degrees from Columbia University and speaks Portuguese, Spanish, and Chinese."
 
-  # Ignite Speakers
-  - name: "Ege Kayakiran"
-    type: speaker
-    title: "Director of Software Development & AI"
-    company: "Sahibinden"
-    image: "ege_kayakiran.png"
-    bio: "Servant Leader with over 22 years of hands-on experience, including 8+ years in senior technology leadership roles such as CTO, Director, and Principal Architect across Fintech, Banking, E-Commerce, and AI.
-
-    Proven ability to build and lead distributed, cross-cultural engineering teams across the UK, Turkey, Ukraine, Poland, Bulgaria, Kosovo, India, and Africa, consistently delivering business-critical systems in highly regulated environments (FCA, EMI, PCI-DSS, SOX, ISO-27001).
-
-    Experienced in driving end-to-end digital transformations: from monolith to microservices, Java transitions, DevOps automation, and AI-Assisted Development—always with a strong focus on scalability, compliance, and team empowerment.
-
-    Consultancy and leadership style is rooted in a deep understanding of software architecture, Agile delivery, and real-world business needs—stepping in when needed as an architect, strategist, or hands-on builder.
-
-    Thrives in environments where technology is not just code, but a driver of innovation and growth."

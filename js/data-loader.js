@@ -362,20 +362,39 @@ function getSpeakerPopupId(speakerName) {
     const keynotes = allSpeakers.filter(s => s.type === 'keynote');
     const regulars = allSpeakers.filter(s => s.type === 'speaker');
     const ignites = allSpeakers.filter(s => s.type === 'ignite');
-    
+
     // Keynote'larda ara
     const keynoteIndex = keynotes.findIndex(s => s.name === speakerName);
     if (keynoteIndex !== -1) return `popup_keynote_${keynoteIndex}`;
-    
+
     // Regular speaker'larda ara
     const regularIndex = regulars.findIndex(s => s.name === speakerName);
     if (regularIndex !== -1) return `popup_speaker_${regularIndex}`;
-    
+
     // Ignite speaker'larda ara
     const igniteIndex = ignites.findIndex(s => s.name === speakerName);
     if (igniteIndex !== -1) return `popup_speaker_${regulars.length + igniteIndex}`;
-    
+
     return null;
+}
+
+/**
+ * "Ad Soyad, Ad Soyad" gibi birden fazla konuşmacı içeren session.speaker
+ * alanını isim listesine ayır (tek konuşmacıda tek elemanlı liste döner)
+ */
+function getSessionSpeakerNames(session) {
+    if (!hasScheduleSpeaker(session)) return [];
+    return String(session.speaker).split(',').map(n => n.trim()).filter(Boolean);
+}
+
+/**
+ * session.speaker içindeki isimlerden speakers.yaml'da eşleşenleri
+ * (fotoğraf + popup id ile birlikte) döner
+ */
+function getMatchedSpeakers(session) {
+    return getSessionSpeakerNames(session)
+        .map(name => ({ name, image: getSpeakerImage(name), popupId: getSpeakerPopupId(name) }))
+        .filter(s => s.image && s.popupId);
 }
 
 /**
@@ -577,9 +596,10 @@ function createScheduleItem(session) {
         }
     }
     
-    // Speaker varsa tıklanabilir yap
-    const popupId = hasScheduleSpeaker(session) ? getSpeakerPopupId(session.speaker) : null;
-    const titleHtml = popupId 
+    // Speaker varsa tıklanabilir yap (birden fazla konuşmacıda ilkinin popup'ına bağlanır)
+    const mobileMatchedSpeakers = getMatchedSpeakers(session);
+    const popupId = mobileMatchedSpeakers.length > 0 ? mobileMatchedSpeakers[0].popupId : null;
+    const titleHtml = popupId
         ? `<a href="#${popupId}" class="ts-image-popup" data-effect="mfp-zoom-in" style="text-decoration: none; color: inherit;"><h3 class="schedule-slot-title" style="cursor: pointer;">${title}</h3></a>`
         : `<h3 class="schedule-slot-title">${title}</h3>`;
     
@@ -622,36 +642,41 @@ function createDesktopSlotInfo(session, isShared = false) {
             </div>`;
     }
     
-    // Speaker varsa fotoğraf göster ve tıklanabilir yap
-    const speakerImage = hasScheduleSpeaker(session) ? getSpeakerImage(session.speaker) : null;
-    const popupId = hasScheduleSpeaker(session) ? getSpeakerPopupId(session.speaker) : null;
-    
-    if (hasScheduleSpeaker(session) && speakerImage && popupId) {
+    // Speaker(ler) varsa fotoğraf(lar) göster ve tıklanabilir yap
+    const matchedSpeakers = getMatchedSpeakers(session);
+
+    if (matchedSpeakers.length === 1) {
+        const [speaker] = matchedSpeakers;
         return `
             <div class="schedule-slot-info${sharedClass}">
-                <a href="#${popupId}" class="ts-image-popup" data-effect="mfp-zoom-in">
-                    <img class="schedule-slot-speakers" src="${speakerImage}" alt="${session.speaker}" style="cursor: pointer;">
+                <a href="#${speaker.popupId}" class="ts-image-popup" data-effect="mfp-zoom-in">
+                    <img class="schedule-slot-speakers" src="${speaker.image}" alt="${speaker.name}" style="cursor: pointer;">
                 </a>
                 <div class="schedule-slot-info-content">
-                    <a href="#${popupId}" class="ts-image-popup" data-effect="mfp-zoom-in" style="text-decoration: none; color: inherit;">
+                    <a href="#${speaker.popupId}" class="ts-image-popup" data-effect="mfp-zoom-in" style="text-decoration: none; color: inherit;">
                         <h3 class="schedule-slot-title" style="cursor: pointer;">${title}</h3>
                     </a>
                     <p>${description}</p>
                 </div>
             </div>`;
     }
-    
-    if (hasScheduleSpeaker(session) && speakerImage) {
+
+    if (matchedSpeakers.length > 1) {
+        const imagesHtml = matchedSpeakers.map(speaker => `
+                <a href="#${speaker.popupId}" class="ts-image-popup" data-effect="mfp-zoom-in">
+                    <img src="${speaker.image}" alt="${speaker.name}" style="cursor: pointer;">
+                </a>`).join('');
         return `
             <div class="schedule-slot-info${sharedClass}">
-                <img class="schedule-slot-speakers" src="${speakerImage}" alt="${session.speaker}">
+                <div class="schedule-slot-speakers-group">${imagesHtml}
+                </div>
                 <div class="schedule-slot-info-content">
                     <h3 class="schedule-slot-title">${title}</h3>
                     <p>${description}</p>
                 </div>
             </div>`;
     }
-    
+
     return `
         <div class="schedule-slot-info${sharedClass}">
             <div class="schedule-slot-info-content">
