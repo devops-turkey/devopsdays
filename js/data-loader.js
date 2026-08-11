@@ -426,6 +426,47 @@ function isParallelTrackSession(session) {
 }
 
 /**
+ * "H:MM - H:MM" formatındaki saat aralığını dakika cinsinden {start, end} olarak döner
+ */
+function parseTimeRange(timeStr) {
+    const [startStr, endStr] = String(timeStr).split(' - ').map(s => s.trim());
+    const toMinutes = t => {
+        const [h, m] = t.split(':').map(Number);
+        return h * 60 + m;
+    };
+    return { start: toMinutes(startStr), end: toMinutes(endStr) };
+}
+
+/**
+ * Verilen başlangıç dakikasını kapsayan Track 2 session'ını bulur.
+ * Track 2'deki bir session, birden fazla Track 1 slotunu kapsayan geniş bir
+ * saat aralığına sahip olabilir (ör. tek bir workshop'un birden fazla slot sürmesi).
+ */
+function findTrack2SessionForTime(track2Sessions, startMinutes) {
+    return track2Sessions.find(s => {
+        const range = parseTimeRange(s.time);
+        return startMinutes >= range.start && startMinutes < range.end;
+    });
+}
+
+/**
+ * Oturumun EN/TR etiketini belirler: track'e bağlı bir varsayılan yok,
+ * her session kendi language alanını (EN/TR) açıkça belirtir
+ */
+function resolveLangTag(session) {
+    return session.language || null;
+}
+
+/**
+ * Küçük EN/TR dil etiketi HTML'i (shared/ortak satırlarda kullanılmaz)
+ */
+function langTagHtml(langTag) {
+    if (!langTag) return '';
+    const cls = langTag === 'EN' ? 'schedule-lang-tag--en' : 'schedule-lang-tag--tr';
+    return ` <span class="schedule-lang-tag ${cls}">${langTag}</span>`;
+}
+
+/**
  * Mobile schedule HTML
  */
 function renderMobileSchedule(tracks) {
@@ -443,25 +484,26 @@ function renderMobileSchedule(tracks) {
         if (index === 0) {
             // Track 1: Tüm session'lar zaten mevcut
             track.sessions.forEach(session => {
-                html += createScheduleItem(session);
+                html += createScheduleItem(session, resolveLangTag(session));
             });
         } else {
             // Track 2: Shared session'ları ve track'e özel session'ları birleştir
             const allSessions = [];
-            
+
             // Ortak program satırları: Track 2 sekmesinde ana salon (Main Stage) — paralel Türkçe oda değil
             sharedSessions.forEach(s => {
                 allSessions.push({
                     ...s,
-                    isMainStage: true
+                    isMainStage: true,
+                    langTag: resolveLangTag(s)
                 });
             });
-            
+
             // Track 2'ye özel session'ları ekle
             track.sessions.forEach(s => {
-                allSessions.push(s);
+                allSessions.push({ ...s, langTag: resolveLangTag(s) });
             });
-            
+
             // Saate göre sırala (numerik karşılaştırma)
             allSessions.sort((a, b) => {
                 const timeA = a.time.split(' - ')[0];
@@ -471,9 +513,9 @@ function renderMobileSchedule(tracks) {
                 const [hoursB, minsB] = timeB.split(':').map(Number);
                 return (hoursA * 60 + minsA) - (hoursB * 60 + minsB);
             });
-            
+
             allSessions.forEach(session => {
-                html += createScheduleItem(session);
+                html += createScheduleItem(session, session.langTag || null);
             });
         }
         
@@ -505,57 +547,111 @@ function hasScheduleSpeaker(session) {
  */
 function renderDesktopSchedule(tracks) {
     if (tracks.length < 2) return '';
-    
+
     const track1 = tracks[0];
     const track2 = tracks[1];
-    
-    // Track 2 session'larını time'a göre map'le (hızlı erişim için)
-    const track2ByTime = {};
-    track2.sessions.forEach(session => {
-        track2ByTime[session.time] = session;
-    });
-    
+
     let html = `<div class="schedule-listing schedule-listing--table-head" role="row">
             <div class="schedule-slot-time schedule-slot-time--head"><span>Time</span></div>
             <div class="schedule-slot-info-container">
                 <div class="schedule-slot-info schedule-head-cell">
-                    <h3 class="schedule-slot-title">Track 1 (English)</h3>
+                    <h3 class="schedule-slot-title">Farabi</h3>
                 </div>
                 <div class="schedule-slot-info schedule-head-cell">
-                    <h3 class="schedule-slot-title">Track 2 (Turkish)</h3>
+                    <h3 class="schedule-slot-title">Aristo</h3>
                 </div>
             </div>
         </div>`;
-    
+
     // Track 1'deki tüm session'ları işle
-    for (let i = 0; i < track1.sessions.length; i++) {
+    let i = 0;
+    while (i < track1.sessions.length) {
         const session1 = track1.sessions[i];
-        const session2 = track2ByTime[session1.time]; // Aynı saatte Track 2 session'ı var mı?
-        
-        html += `<div class="schedule-listing">
+
+        if (isParallelTrackSession(session1)) {
+            const range1 = parseTimeRange(session1.time);
+            const session2 = findTrack2SessionForTime(track2.sessions, range1.start);
+
+            // Bu Track 2 session'ı kaç ardışık Track 1 slotunu kapsıyor? (ör. uzun süren workshop)
+            let span = 1;
+            if (session2) {
+                const range2 = parseTimeRange(session2.time);
+                while (i + span < track1.sessions.length) {
+                    const nextSession1 = track1.sessions[i + span];
+                    if (!isParallelTrackSession(nextSession1)) break;
+                    const nextStart = parseTimeRange(nextSession1.time).start;
+                    if (nextStart >= range2.start && nextStart < range2.end) {
+                        span++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+
+            if (span > 1) {
+                // Track 2 hücresi birden fazla satırı kapsıyor: birleşik (merged) hücre olarak render et
+                html += createMergedTrack2Block(track1.sessions.slice(i, i + span), session2);
+                i += span;
+                continue;
+            }
+
+            html += `<div class="schedule-listing">
+                <div class="schedule-slot-time">
+                    <span>${session1.time}</span>
+                    ${session1.type === 'Ignite Talks' ? 'Ignite' : ''}
+                </div>
+                <div class="schedule-slot-info-container">
+                    ${createDesktopSlotInfo(session1, resolveLangTag(session1))}
+                    ${session2 ? createDesktopSlotInfo(session2, resolveLangTag(session2)) : '<div class="schedule-slot-info empty-slot" aria-hidden="true"></div>'}
+                </div>
+            </div>`;
+        } else {
+            // Ortak program: tek geniş hücre (Track 1 / 2 ayrımı yok)
+            html += `<div class="schedule-listing">
+                <div class="schedule-slot-time">
+                    <span>${session1.time}</span>
+                    ${session1.type === 'Ignite Talks' ? 'Ignite' : ''}
+                </div>
+                <div class="schedule-slot-info-container schedule-slot-info-container--shared-row">
+                    ${createDesktopSlotInfo(session1, resolveLangTag(session1))}
+                </div>
+            </div>`;
+        }
+
+        i++;
+    }
+
+    return html;
+}
+
+/**
+ * Track 2'deki bir session'ın birden fazla Track 1 slotunu kapsadığı durumda
+ * (ör. uzun süren workshop), tek bir CSS grid bloğu içinde birleşik hücre render eder.
+ */
+function createMergedTrack2Block(track1Rows, session2) {
+    let cellsHtml = '';
+
+    track1Rows.forEach((session1, idx) => {
+        const rowNum = idx + 1;
+        const isLast = idx === track1Rows.length - 1;
+        const dividerClass = isLast ? '' : ' schedule-merged-cell--divider';
+
+        cellsHtml += `<div class="schedule-merged-cell${dividerClass}" style="grid-row: ${rowNum}; grid-column: 1;">
             <div class="schedule-slot-time">
                 <span>${session1.time}</span>
                 ${session1.type === 'Ignite Talks' ? 'Ignite' : ''}
             </div>
-            <div class="schedule-slot-info-container${isParallelTrackSession(session1) ? '' : ' schedule-slot-info-container--shared-row'}">`;
-        
-        if (!isParallelTrackSession(session1)) {
-            // Ortak program: tek geniş hücre (Track 1 / 2 ayrımı yok)
-            html += createDesktopSlotInfo(session1, false);
-        } else {
-            // Paralel track oturumları — yan yana iki sütun
-            html += createDesktopSlotInfo(session1, false);
-            if (session2) {
-                html += createDesktopSlotInfo(session2, false);
-            } else {
-                html += `<div class="schedule-slot-info empty-slot" aria-hidden="true"></div>`;
-            }
-        }
-        
-        html += `</div></div>`;
-    }
-    
-    return html;
+        </div>`;
+        cellsHtml += `<div class="schedule-merged-cell${dividerClass}" style="grid-row: ${rowNum}; grid-column: 2;">
+            ${createDesktopSlotInfo(session1, resolveLangTag(session1))}
+        </div>`;
+    });
+
+    cellsHtml += `<div class="schedule-merged-cell schedule-merged-cell--track2" style="grid-row: 1 / span ${track1Rows.length}; grid-column: 3;">
+        ${createDesktopSlotInfo(session2, resolveLangTag(session2))}
+    </div>`;
+
+    return `<div class="schedule-listing schedule-merged-block">${cellsHtml}</div>`;
 }
 
 /**
@@ -570,21 +666,23 @@ function getIgniteSpeakersForSchedule() {
 /**
  * Tek bir schedule item HTML'i (mobile)
  */
-function createScheduleItem(session) {
+function createScheduleItem(session, langTag = null) {
     const title = getSessionTitle(session);
     let description = session.description || '';
-    
+    // Etiket sadece gerçek bir konuşmacısı olan oturumlarda, ismin hemen yanında gösterilir
+    const tagHtml = hasScheduleSpeaker(session) ? langTagHtml(langTag) : '';
+
     // Note varsa ekle
     if (session.note) {
         description += ` <strong>${session.note}</strong>`;
     }
-    
+
     // Main Stage notu ekle (Track 2'de shared session'lar için)
     if (session.isMainStage) {
         description += description ? ' ' : '';
         description += '<em style="color: #ffd700;">(Main Stage)</em>';
     }
-    
+
     // Ignite talks için - speakers.yaml'dan otomatik çek
     if (session.type === 'Ignite Talks') {
         const igniteSpeakers = getIgniteSpeakersForSchedule();
@@ -595,14 +693,14 @@ function createScheduleItem(session) {
             description += '<br><em style="color: #ffd700;">(Main Stage)</em>';
         }
     }
-    
+
     // Speaker varsa tıklanabilir yap (birden fazla konuşmacıda ilkinin popup'ına bağlanır)
     const mobileMatchedSpeakers = getMatchedSpeakers(session);
     const popupId = mobileMatchedSpeakers.length > 0 ? mobileMatchedSpeakers[0].popupId : null;
     const titleHtml = popupId
-        ? `<a href="#${popupId}" class="ts-image-popup" data-effect="mfp-zoom-in" style="text-decoration: none; color: inherit;"><h3 class="schedule-slot-title" style="cursor: pointer;">${title}</h3></a>`
-        : `<h3 class="schedule-slot-title">${title}</h3>`;
-    
+        ? `<a href="#${popupId}" class="ts-image-popup" data-effect="mfp-zoom-in" style="text-decoration: none; color: inherit;"><h3 class="schedule-slot-title" style="cursor: pointer;">${title}${tagHtml}</h3></a>`
+        : `<h3 class="schedule-slot-title">${title}${tagHtml}</h3>`;
+
     return `
         <div class="schedule-listing">
             <div class="schedule-slot-time">
@@ -619,42 +717,43 @@ function createScheduleItem(session) {
 /**
  * Desktop slot info HTML
  */
-function createDesktopSlotInfo(session, isShared = false) {
+function createDesktopSlotInfo(session, langTag = null) {
     const title = getSessionTitle(session);
     let description = session.description || '';
-    const sharedClass = isShared ? ' shared-slot' : '';
-    
+    // Etiket sadece gerçek bir konuşmacısı olan oturumlarda, ismin hemen yanında gösterilir
+    const tagHtml = hasScheduleSpeaker(session) ? langTagHtml(langTag) : '';
+
     // Note varsa ekle
     if (session.note) {
         description += ` <strong>${session.note}</strong>`;
     }
-    
+
     // Ignite talks için - speakers.yaml'dan otomatik çek
     if (session.type === 'Ignite Talks') {
         const igniteSpeakers = getIgniteSpeakersForSchedule();
         return `
-            <div class="schedule-slot-info${sharedClass}">
+            <div class="schedule-slot-info">
                 <div class="schedule-slot-info-content">
-                    ${igniteSpeakers.map(s => 
+                    ${igniteSpeakers.map(s =>
                         `<p class="schedule-slot" style="white-space: nowrap;">${s.name} - ${s.talk}</p>`
                     ).join('')}
                 </div>
             </div>`;
     }
-    
+
     // Speaker(ler) varsa fotoğraf(lar) göster ve tıklanabilir yap
     const matchedSpeakers = getMatchedSpeakers(session);
 
     if (matchedSpeakers.length === 1) {
         const [speaker] = matchedSpeakers;
         return `
-            <div class="schedule-slot-info${sharedClass}">
+            <div class="schedule-slot-info">
                 <a href="#${speaker.popupId}" class="ts-image-popup" data-effect="mfp-zoom-in">
                     <img class="schedule-slot-speakers" src="${speaker.image}" alt="${speaker.name}" style="cursor: pointer;">
                 </a>
                 <div class="schedule-slot-info-content">
                     <a href="#${speaker.popupId}" class="ts-image-popup" data-effect="mfp-zoom-in" style="text-decoration: none; color: inherit;">
-                        <h3 class="schedule-slot-title" style="cursor: pointer;">${title}</h3>
+                        <h3 class="schedule-slot-title" style="cursor: pointer;">${title}${tagHtml}</h3>
                     </a>
                     <p>${description}</p>
                 </div>
@@ -667,20 +766,20 @@ function createDesktopSlotInfo(session, isShared = false) {
                     <img src="${speaker.image}" alt="${speaker.name}" style="cursor: pointer;">
                 </a>`).join('');
         return `
-            <div class="schedule-slot-info${sharedClass}">
+            <div class="schedule-slot-info">
                 <div class="schedule-slot-speakers-group">${imagesHtml}
                 </div>
                 <div class="schedule-slot-info-content">
-                    <h3 class="schedule-slot-title">${title}</h3>
+                    <h3 class="schedule-slot-title">${title}${tagHtml}</h3>
                     <p>${description}</p>
                 </div>
             </div>`;
     }
 
     return `
-        <div class="schedule-slot-info${sharedClass}">
+        <div class="schedule-slot-info">
             <div class="schedule-slot-info-content">
-                <h3 class="schedule-slot-title">${title}</h3>
+                <h3 class="schedule-slot-title">${title}${tagHtml}</h3>
                 ${description ? `<p>${description}</p>` : ''}
             </div>
         </div>`;

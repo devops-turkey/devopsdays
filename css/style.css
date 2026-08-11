@@ -2095,7 +2095,7 @@ img.pull-right {
 /* Konuşmacı fotoğrafı varsa sol boşluk (avatar) */
 .schedule-listing .schedule-slot-info:has(.schedule-slot-speakers),
 .schedule-listing .schedule-slot-info:has(.schedule-slot-speakers-group) {
-  padding-left: 120px;
+  padding-left: 110px;
 }
 
 .schedule-listing .schedule-slot-info .schedule-slot-speakers {
@@ -2203,6 +2203,9 @@ img.pull-right {
   -ms-flex: 1;
   flex: 1;
   min-width: 0;
+  /* Track 2'de çok konuşmacılı oturum başlıkları (ör. "Mert Polat, Buğra Çakmak")
+     alt satıra kaymadan sığsın diye Track 2 sütununa biraz daha yer veriyoruz */
+  grid-template-columns: 48% 52%;
 }
 
 /* Track Sessions dışı: tek sütun, iki track sütununun tamamını kaplar */
@@ -2212,6 +2215,9 @@ img.pull-right {
 
 #schedule-desktop-container .schedule-slot-time {
   border-right: 1px solid rgba(255, 255, 255, 0.18);
+  /* Konuşmacı isimleri + EN/TR etiketine daha fazla yer açmak için saat sütununu daralt */
+  flex: 0 0 15%;
+  max-width: 15%;
 }
 
 #schedule-desktop-container .schedule-slot-info:not(:first-child) {
@@ -2233,6 +2239,58 @@ img.pull-right {
 
 #schedule-mobile-container .schedule-listing:nth-of-type(even) .schedule-slot-info {
   background: rgba(18, 15, 78, 0.12);
+}
+
+/* Bir Track 2 oturumu birden fazla Track 1 slotunu kapsadığında (ör. uzun süren
+   workshop), tüm satırlar tek bir CSS grid bloğunda birleştirilir (merged cell). */
+#schedule-desktop-container .schedule-merged-block {
+  display: grid;
+  grid-template-columns: 15% 41% 44%;
+}
+
+#schedule-desktop-container .schedule-merged-cell {
+  min-width: 0;
+}
+
+/* .schedule-slot-time'ın normal flex satırındaki "max-width: 18%" kuralı, grid
+   hücresi içinde kendi genişliğine göre hesaplanır ve metni daraltır — sıfırla */
+#schedule-desktop-container .schedule-merged-cell .schedule-slot-time {
+  max-width: 100%;
+}
+
+#schedule-desktop-container .schedule-merged-cell--divider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#schedule-desktop-container .schedule-merged-cell--track2 {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: stretch;
+}
+
+#schedule-desktop-container .schedule-merged-cell--track2 .schedule-slot-info {
+  width: 100%;
+}
+
+/* Oturumun İngilizce/Türkçe olduğunu belirten küçük etiket */
+.schedule-lang-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 6px;
+  color: #fff;
+}
+
+.schedule-lang-tag--en {
+  background: rgba(59, 29, 130, 0.55);
+}
+
+.schedule-lang-tag--tr {
+  background: rgba(231, 1, 94, 0.45);
 }
 
 /* Hide inactive tabs completely to prevent space issues */

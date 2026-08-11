@@ -1,75 +1,74 @@
 # DevOpsDays Istanbul 2026 - Schedule
 # Speaker names must be kept in sync with speakers.yaml
-# shared: true sessions span both tracks (rendered as a single wide card)
+# language: "EN"/"TR" is set per session (there is no track-level default anymore —
+# each talk must declare its own language explicitly)
 # enabled: true/false - when false, the schedule section is hidden and a "coming soon" message is shown
 
 enabled: true
 
 tracks:
-  - name: "Track 1"
-    language: "English"
+  - name: "Farabi"
     sessions:
       - time: "8:15 - 9:00"
         type: "Registration"
         title: "Registration"
         description: "Registration and Breakfast"
-        shared: true
 
       - time: "9:00 - 9:40"
         type: "Opening"
         title: "Opening"
         description: "Opening and Sponsorship Pitches"
-        shared: true
 
       - time: "9:40 - 10:20"
         type: "Keynote"
         speaker: "Michael Coté"
         description: "Opening Keynote"
-        shared: true
+        language: "EN"
 
       - time: "10:25 - 10:55"
         type: "Track Sessions"
         speaker: "Nora Shannon Johnson"
         description: "Observability for Agentic AI: Instrumentation for MCP"
+        language: "EN"
 
       - time: "10:55 - 11:20"
         type: "Coffee Break"
         title: "Coffee Break"
         description: "Networking and Refreshments"
-        shared: true
 
       - time: "11:20 - 11:50"
         type: "Track Sessions"
         speaker: "Alexandre-Xavier Labonté-Lamoureux"
         description: "The End of YAML: How Code-Generated Pipelines Solve CI/CD's Maintainability Problem"
+        language: "EN"
 
       - time: "11:50 - 12:20"
         type: "Track Sessions"
         speaker: "Diana Todea"
         description: "Observability's Sixth Sense: Detecting Anomalies in Metrics"
+        language: "EN"
 
       - time: "12:20 - 13:00"
         type: "Ignite Talks"
         title: "Ignite Talks"
         description: "TBC (To Be Confirmed)"
-        shared: true
 
       - time: "13:00 - 14:00"
         type: "Lunch"
         title: "Lunch"
         description: "Lunch Break"
-        shared: true
 
       - time: "14:00 - 14:30"
         type: "Track Sessions"
         speaker: "Ioanna Armouti"
         description: "What It Actually Takes to Make an AI Assistant Useful When On Call"
+        language: "EN"
 
       - time: "14:35 - 15:15"
         type: "Keynote"
         speaker: "Manuel Pais"
         description: "Closing Keynote"
-        shared: true
+        language: "EN"
 
       - time: "15:15 - 15:50"
         type: "Track Sessions"
@@ -95,47 +94,36 @@ tracks:
         type: "Closing"
         title: "Raffle + Closing"
         description: "Prize Draw and Closing Remarks"
-        shared: true
 
-  - name: "Track 2"
-    language: "Turkish"
+  - name: "Aristo"
     sessions:
       - time: "10:25 - 10:55"
         type: "Track Sessions"
         speaker: "Mert Polat, Buğra Çakmak"
         description: "The Day We Killed 100% of Our Pods: Self-Service Chaos Engineering for 1000+ Microservices at a Bank"
+        language: "TR"
 
       - time: "11:20 - 11:50"
         type: "Track Sessions"
         speaker: "Cansu Kavılı Örnek"
         description: "Hack Me If You Can: Designing Unbreakable LLM Guardrails"
+        language: "TR"
 
       - time: "11:50 - 12:20"
         type: "Track Sessions"
         speaker: "Ege Kayakiran"
         description: "Agentic Systems: Multi-Agent Orchestration & Compliance in Regulated Environments"
+        language: "TR"
 
       - time: "14:00 - 14:30"
         type: "Track Sessions"
         speaker: "Florian Nowarre"
         description: "How I Failed to Build a Platform Team (And What I'd Do Differently)"
+        language: "EN"
 
-      - time: "15:15 - 15:50"
-        type: "Workshop"
-        title: "Workshop"
-        description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
-
-      - time: "15:50 - 16:20"
-        type: "Workshop"
-        title: "Workshop"
-        description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
-
-      - time: "16:20 - 16:40"
-        type: "Workshop"
-        title: "Workshop"
-        description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
-
-      - time: "16:40 - 17:10"
+      # Tek oturum ama 4 Track 1 slotu boyunca sürüyor (15:15-17:10) -> desktop görünümde
+      # tek birleşik (merged/rowspan) hücre olarak render edilir (bkz. renderDesktopSchedule)
+      - time: "15:15 - 17:10"
         type: "Workshop"
         title: "Workshop"
         description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
