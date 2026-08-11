@@ -7,7 +7,7 @@
 enabled: true
 
 tracks:
-  - name: "Farabi"
+  - name: "Room 1 - Farabi"
     sessions:
       - time: "8:15 - 9:00"
         type: "Registration"
@@ -95,7 +95,7 @@ tracks:
         title: "Raffle + Closing"
         description: "Prize Draw and Closing Remarks"
 
-  - name: "Aristo"
+  - name: "Room 2 - Aristo"
     sessions:
       - time: "10:25 - 10:55"
         type: "Track Sessions"

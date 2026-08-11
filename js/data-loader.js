@@ -555,10 +555,10 @@ function renderDesktopSchedule(tracks) {
             <div class="schedule-slot-time schedule-slot-time--head"><span>Time</span></div>
             <div class="schedule-slot-info-container">
                 <div class="schedule-slot-info schedule-head-cell">
-                    <h3 class="schedule-slot-title">Farabi</h3>
+                    <h3 class="schedule-slot-title">Room 1 - Farabi</h3>
                 </div>
                 <div class="schedule-slot-info schedule-head-cell">
-                    <h3 class="schedule-slot-title">Aristo</h3>
+                    <h3 class="schedule-slot-title">Room 2 - Aristo</h3>
                 </div>
             </div>
         </div>`;
