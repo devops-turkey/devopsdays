@@ -451,6 +451,15 @@ img.pull-right {
   background: #0f0d3a;
 }
 
+.venue-map-wrap {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.venue-map-wrap iframe {
+  display: block;
+}
+
 
 .column-title {
   margin-bottom: 35px;
@@ -558,7 +567,7 @@ img.pull-right {
       header area
 ===========================*/
 .header .navbar {
-  padding: 10px 0;
+  padding: 4px 0;
 }
 
 .header .navbar-toggler {
@@ -578,7 +587,7 @@ img.pull-right {
 .header ul.navbar-nav > li > a {
   font-weight: 700;
   font-size: 14px;
-  line-height: 78px;
+  line-height: 44px;
   text-transform: uppercase;
   padding: 0 20px;
   display: block;
@@ -589,7 +598,7 @@ img.pull-right {
 }
 
 .header ul.navbar-nav > li.header-ticket {
-  margin-top: 15px;
+  margin-top: 6px;
 }
 
 .header ul.navbar-nav > li.header-ticket .ticket-btn {
@@ -646,17 +655,18 @@ img.pull-right {
 }
 
 .header.header-transparent .navbar-brand img {
-  vertical-align: top;
+  display: block;
+  height: 52px;
+  width: auto;
 }
 
 .header.header-transparent ul.navbar-nav {
   position: relative;
-  top: 5px;
 }
 
 .header.header-transparent ul.navbar-nav > li > a {
   color: #fff;
-  line-height: 72px;
+  line-height: 44px;
 }
 
 .header.header-transparent.nav-border {
@@ -1580,6 +1590,8 @@ img.pull-right {
 
 .ts-speaker .speaker-img img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
@@ -1732,8 +1744,16 @@ img.pull-right {
   position: relative;
 }
 
+.ts-speaker-popup .ts-speaker-popup-img {
+  overflow: hidden;
+}
+
 .ts-speaker-popup .ts-speaker-popup-img img {
   width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .ts-speaker-popup .ts-speaker-popup-content {
