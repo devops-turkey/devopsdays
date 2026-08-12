@@ -490,11 +490,13 @@ function renderMobileSchedule(tracks) {
             // Track 2: Shared session'ları ve track'e özel session'ları birleştir
             const allSessions = [];
 
-            // Ortak program satırları: Track 2 sekmesinde ana salon (Main Stage) — paralel Türkçe oda değil
+            // Ortak program satırları: Track 2 sekmesinde ana salon (Room 1 - Farabi) — paralel Türkçe oda değil
+            // Not: sadece Opening, Keynote ve Ignite Talks için "Room 1 (Farabi)" etiketi gösterilir
+            const mainStageTypes = ['Opening', 'Keynote', 'Ignite Talks'];
             sharedSessions.forEach(s => {
                 allSessions.push({
                     ...s,
-                    isMainStage: true,
+                    isMainStage: mainStageTypes.includes(s.type),
                     langTag: resolveLangTag(s)
                 });
             });
@@ -677,10 +679,10 @@ function createScheduleItem(session, langTag = null) {
         description += ` <strong>${session.note}</strong>`;
     }
 
-    // Main Stage notu ekle (Track 2'de shared session'lar için)
+    // Room 1 (Farabi) notu ekle (Track 2'de shared session'lar için: Opening, Keynote, Ignite Talks)
     if (session.isMainStage) {
         description += description ? ' ' : '';
-        description += '<em style="color: #ffd700;">(Main Stage)</em>';
+        description += '<em style="color: #ffd700;">(Room 1 - Farabi)</em>';
     }
 
     // Ignite talks için - speakers.yaml'dan otomatik çek
@@ -690,7 +692,7 @@ function createScheduleItem(session, langTag = null) {
             .map(s => `<strong>${s.name}</strong> — ${s.talk}`)
             .join('<br>');
         if (session.isMainStage) {
-            description += '<br><em style="color: #ffd700;">(Main Stage)</em>';
+            description += '<br><em style="color: #ffd700;">(Room 1 - Farabi)</em>';
         }
     }
 
