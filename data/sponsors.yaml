@@ -48,6 +48,9 @@ tiers:
       - name: "Kloia"
         url: "https://kloia.com/"
         image: "kloia.png"
+      - name: "Enterprise Coding"
+        url: "https://enterprisecoding.com/"
+        image: "enterprisecoding-elastic.png"
 
   - name: "Silver"
     type: silver
