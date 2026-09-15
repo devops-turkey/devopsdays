@@ -2132,12 +2132,21 @@ img.pull-right {
 
 /* Birden fazla konuşmacılı oturumlarda (ör. co-presented talk) üst üste binen avatar grubu */
 .schedule-listing .schedule-slot-info .schedule-slot-speakers-group {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  transform: none;
   display: flex;
   align-items: center;
+}
+
+.schedule-listing .schedule-slot-info:has(.schedule-slot-speakers-group) {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  column-gap: 20px;
+  padding-left: 24px;
+}
+
+.schedule-listing .schedule-slot-info:has(.schedule-slot-speakers-group) .schedule-slot-info-content {
+  min-width: 0;
 }
 
 .schedule-listing .schedule-slot-info .schedule-slot-speakers-group img {

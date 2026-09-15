@@ -544,6 +544,11 @@ function hasScheduleSpeaker(session) {
     return session.speaker != null && String(session.speaker).trim() !== '';
 }
 
+function formatWorkshopDescription(session, description) {
+    if (session.type !== 'Workshop') return description;
+    return description.replace(/^(.+?)\s+—\s+/, '<strong>$1</strong> — ');
+}
+
 /**
  * Desktop schedule HTML (yan yana görünüm)
  */
@@ -671,6 +676,7 @@ function getIgniteSpeakersForSchedule() {
 function createScheduleItem(session, langTag = null) {
     const title = getSessionTitle(session);
     let description = session.description || '';
+    description = formatWorkshopDescription(session, description);
     // Etiket sadece gerçek bir konuşmacısı olan oturumlarda, ismin hemen yanında gösterilir
     const tagHtml = hasScheduleSpeaker(session) ? langTagHtml(langTag) : '';
 
@@ -722,6 +728,7 @@ function createScheduleItem(session, langTag = null) {
 function createDesktopSlotInfo(session, langTag = null) {
     const title = getSessionTitle(session);
     let description = session.description || '';
+    description = formatWorkshopDescription(session, description);
     // Etiket sadece gerçek bir konuşmacısı olan oturumlarda, ismin hemen yanında gösterilir
     const tagHtml = hasScheduleSpeaker(session) ? langTagHtml(langTag) : '';
 
@@ -737,7 +744,7 @@ function createDesktopSlotInfo(session, langTag = null) {
             <div class="schedule-slot-info">
                 <div class="schedule-slot-info-content">
                     ${igniteSpeakers.map(s =>
-                        `<p class="schedule-slot" style="white-space: nowrap;">${s.name} - ${s.talk}</p>`
+                        `<p class="schedule-slot" style="white-space: nowrap;"><strong>${s.name}</strong> - ${s.talk}</p>`
                     ).join('')}
                 </div>
             </div>`;

@@ -135,3 +135,28 @@ speakers:
     image: "nora_shannon_johnson.jpeg"
     bio: "Nora Shannon Johnson is a Solutions Architect at Amazon, where she advises Fortune 500 companies and leading enterprises on cloud architecture and generative AI strategy. She specializes in designing scalable solutions for media and entertainment, financial services, healthcare, and retail organizations. Previously, Nora worked as an engineer and consultant across DevOps, Financial Technology, industrial AI/ML, and Educational Technology in the United States, Europe, and Latin America. She holds degrees from Columbia University and speaks Portuguese, Spanish, and Chinese."
 
+  # Ignite Speakers
+  - name: "Alp Kahvecioğlu"
+    type: ignite
+    title: "Platform Engineer"
+    company: "JumpCloud"
+    image: "alp_kahvecioglu.png"
+    session_name: "Lesser-Known Kubernetes Resources Platform Admins Sometimes Overlook"
+    bio: "Alp is a Platform Engineer at JumpCloud who brings a unique perspective to technical challenges through his unconventional journey from mathematics to literature before finding his calling in DevOps. He has been crafting innovative solutions for Kubernetes, cloud technologies, and Cloud Native transformations with creative problem-solving. He has advised numerous companies in the retail, e-commerce, media, and finance sectors."
+
+  - name: "Sena Yakut"
+    type: ignite
+    title: "Senior Security Engineer"
+    company: "Trendyol"
+    image: "sena_yakut.png"
+    session_name: "Your Next Cloud Breach Will Probably Involve AI"
+    bio: "Sena has experience in understanding and applying security concepts for cloud platforms. She defines security needs for cloud designs, provides security services on AWS, and manages risks for cloud solutions. Sena is recognized as an AWS Security Hero for her expertise and is also one of the organizers for AWS Community Day Turkiye, demonstrating her commitment to building and supporting the cloud community.\n\nShe is skilled in creating secure cloud architectures, implementing best practices, and ensuring compliance with security standards. She has a strong background in incident response, threat analysis, and vulnerability management. Sena is also proficient in automating security processes and integrating security tools to enhance the overall security posture of cloud systems."
+
+  - name: "Timothy Mamo"
+    type: ignite
+    title: "Cloud Native Consultant "
+    company: "FikaWorks"
+    image: "timothy_mamo.png"
+    session_name: "DevOps Lessons from a Primary School Teacher"
+    bio: "Timothy Mamo loves to help growing companies make the most of the cloud by focusing on Cloud Native technologies and processes. He’s had a varied experience, from studying aerospace engineering and working in the automotive industry before moving into the world of Cloud. He enjoys working and helping others improve and understand, at times with some Mediterranean gusto."
+
