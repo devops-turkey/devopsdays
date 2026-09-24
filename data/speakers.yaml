@@ -144,6 +144,14 @@ speakers:
     session_name: "Lesser-Known Kubernetes Resources Platform Admins Sometimes Overlook"
     bio: "Alp is a Platform Engineer at JumpCloud who brings a unique perspective to technical challenges through his unconventional journey from mathematics to literature before finding his calling in DevOps. He has been crafting innovative solutions for Kubernetes, cloud technologies, and Cloud Native transformations with creative problem-solving. He has advised numerous companies in the retail, e-commerce, media, and finance sectors."
 
+  - name: "Baran Gayretli"
+    type: ignite
+    title: "Software Engineer"
+    company: "Kloia"
+    image: "baran_gayretli.png"
+    session_name: "Knowledge-Grounded AI-DLC: Giving AI Your Organization’s Context"
+    bio: "I'm a software engineer at kloia. I've spent seven years building high-traffic e-commerce platforms and working on client modernization projects. These days I work on knowledge-grounded AIDLC, getting AI to understand how a team actually builds software so it writes code that fits in, the way someone who already knows the codebase would"
+
   - name: "Sena Yakut"
     type: ignite
     title: "Senior Security Engineer"
