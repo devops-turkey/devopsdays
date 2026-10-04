@@ -1673,6 +1673,23 @@ img.pull-right {
   color: #e7015e;
 }
 
+/* Hover'da fotoğraf etrafında pembe halka + isim pembe */
+.ts-speaker .speaker-img {
+  transition: box-shadow 0.3s ease;
+}
+
+.ts-speaker:hover .speaker-img {
+  box-shadow: 0 0 0 4px #e6005c;
+}
+
+.ts-speaker .ts-speaker-info .ts-title {
+  transition: color 0.3s ease;
+}
+
+.ts-speaker:hover .ts-speaker-info .ts-title {
+  color: #e6005c !important;
+}
+
 .ts-speaker.white-text .ts-title a,
 .ts-speaker.white-text p {
   color: #fff;
@@ -2125,6 +2142,7 @@ img.pull-right {
   transform: translateY(-50%);
   height: 80px;
   width: 80px;
+  object-fit: cover;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -2143,6 +2161,8 @@ img.pull-right {
   grid-template-columns: 104px minmax(0, 1fr);
   column-gap: 20px;
   padding-left: 24px;
+  align-content: center;
+  align-items: center;
 }
 
 .schedule-listing .schedule-slot-info:has(.schedule-slot-speakers-group) .schedule-slot-info-content {
@@ -2152,6 +2172,7 @@ img.pull-right {
 .schedule-listing .schedule-slot-info .schedule-slot-speakers-group img {
   height: 60px;
   width: 60px;
+  object-fit: cover;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -2161,6 +2182,17 @@ img.pull-right {
 
 .schedule-listing .schedule-slot-info .schedule-slot-speakers-group a:first-child img {
   margin-left: 0;
+}
+
+/* Hover'da avatarın etrafında pembe halka */
+.schedule-listing .schedule-slot-info .schedule-slot-speakers,
+.schedule-listing .schedule-slot-info .schedule-slot-speakers-group img {
+  transition: box-shadow 0.2s ease;
+}
+
+.schedule-listing .schedule-slot-info:hover .schedule-slot-speakers,
+.schedule-listing .schedule-slot-info:hover .schedule-slot-speakers-group img {
+  box-shadow: 0 0 0 3px #e6005c;
 }
 
 .schedule-listing .schedule-slot-info .schedule-slot-title {
@@ -2299,6 +2331,71 @@ img.pull-right {
 
 #schedule-desktop-container .schedule-merged-cell--track2 .schedule-slot-info {
   width: 100%;
+}
+
+/* Workshop: konuşmacılar ortalanmış, isimler fotoğrafların altında */
+.schedule-listing .schedule-slot-info.schedule-slot-info--workshop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 35px 24px;
+}
+
+.schedule-workshop-speakers {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.schedule-workshop-speaker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 130px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.schedule-workshop-speaker img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.schedule-workshop-speaker:hover img {
+  transform: scale(1.06);
+  border-color: #e6005c;
+}
+
+.schedule-workshop-speaker-name {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.schedule-workshop-speaker:hover .schedule-workshop-speaker-name {
+  color: #e6005c;
+}
+
+.schedule-slot-info--workshop .schedule-slot-info-content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.schedule-slot-info--workshop .schedule-workshop-label {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
 }
 
 /* Oturumun İngilizce/Türkçe olduğunu belirten küçük etiket */

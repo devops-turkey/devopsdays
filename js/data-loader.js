@@ -769,6 +769,22 @@ function createDesktopSlotInfo(session, langTag = null) {
             </div>`;
     }
 
+    if (matchedSpeakers.length > 1 && session.type === 'Workshop') {
+        const cardsHtml = matchedSpeakers.map(speaker => `
+                <a href="#${speaker.popupId}" class="ts-image-popup schedule-workshop-speaker" data-effect="mfp-zoom-in">
+                    <img src="${speaker.image}" alt="${speaker.name}">
+                    <span class="schedule-workshop-speaker-name">${speaker.name}</span>
+                </a>`).join('');
+        return `
+            <div class="schedule-slot-info schedule-slot-info--workshop">
+                <div class="schedule-workshop-speakers">${cardsHtml}
+                </div>
+                <div class="schedule-slot-info-content">
+                    <p>${description.replace(/^Workshop:\s*/, '<strong class="schedule-workshop-label">Workshop</strong><br>')}</p>
+                </div>
+            </div>`;
+    }
+
     if (matchedSpeakers.length > 1) {
         const imagesHtml = matchedSpeakers.map(speaker => `
                 <a href="#${speaker.popupId}" class="ts-image-popup" data-effect="mfp-zoom-in">

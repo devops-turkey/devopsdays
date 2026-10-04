@@ -125,5 +125,5 @@ tracks:
       # tek birleşik (merged/rowspan) hücre olarak render edilir (bkz. renderDesktopSchedule)
       - time: "15:15 - 17:10"
         type: "Workshop"
-        title: "Workshop"
-        description: "Mehmet Hilmi Emel, Batuhan Apaydın — Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
+        speaker: "Mehmet Hilmi Emel, Batuhan Apaydın"
+        description: "Workshop: Building and Securing Custom MCP Servers with FastMCP, Google ADK, and AgentGateway"
