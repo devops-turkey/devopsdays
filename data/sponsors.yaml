@@ -51,6 +51,9 @@ tiers:
       - name: "Enterprise Coding"
         url: "https://enterprisecoding.com/"
         image: "enterprisecoding-elastic.png"
+      - name: "CloudBees"
+        url: "https://www.cloudbees.com/"
+        image: "cloudbees.png"
 
   - name: "Silver"
     type: silver
