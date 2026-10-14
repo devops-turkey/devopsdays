@@ -69,10 +69,12 @@ function renderSponsors(tiers, containerId) {
 
         (tier.sponsors || []).forEach(sponsor => {
             const image = resolveSponsorImagePath(sponsor.image);
+            // Per-sponsor width is a manual override; otherwise size is computed from the image's aspect ratio
+            const fixedWidth = sponsor.width ? ` data-fixed-width="${sponsor.width}"` : '';
             html += `
             <div style="flex: 0 0 auto; padding: 0 15px; display: flex; align-items: center; justify-content: center;">
                 <a href="${sponsor.url}" class="sponsors-logo" target="_blank" rel="noopener noreferrer">
-                    <img src="${image}" alt="${sponsor.name}" style="width: ${width}px; max-width: 100%;">
+                    <img class="sponsor-logo-img" src="${image}" alt="${sponsor.name}" data-box-width="${width}"${fixedWidth} style="width: ${sponsor.width || width}px; max-width: 100%; height: auto;">
                 </a>
             </div>`;
         });
@@ -81,6 +83,37 @@ function renderSponsors(tiers, containerId) {
     });
 
     container.innerHTML = html;
+
+    container.querySelectorAll('img.sponsor-logo-img').forEach(img => {
+        if (img.complete) sizeSponsorLogo(img);
+        else img.addEventListener('load', () => sizeSponsorLogo(img));
+    });
+}
+
+/**
+ * Give every logo in a tier the same visual weight regardless of the file's dimensions.
+ * Logos get an equal area inside a box of tierWidth x (tierWidth * BOX_RATIO), keeping their
+ * aspect ratio, so wide logos don't look thin and square logos don't look huge.
+ */
+const SPONSOR_BOX_RATIO = 0.4;   // box height = 40% of tier width
+const SPONSOR_AREA_FILL = 0.55;  // each logo covers ~55% of the box area
+
+function sizeSponsorLogo(img) {
+    if (img.dataset.fixedWidth) return;
+
+    const ratio = img.naturalWidth / img.naturalHeight;
+    if (!ratio || !isFinite(ratio)) return; // e.g. SVG without intrinsic size: keep tier width
+
+    const boxWidth = Number(img.dataset.boxWidth);
+    const boxHeight = boxWidth * SPONSOR_BOX_RATIO;
+    const area = boxWidth * boxHeight * SPONSOR_AREA_FILL;
+
+    let w = Math.sqrt(area * ratio);
+    let h = w / ratio;
+    if (w > boxWidth) { w = boxWidth; h = w / ratio; }
+    if (h > boxHeight) { h = boxHeight; w = h * ratio; }
+
+    img.style.width = `${Math.round(w)}px`;
 }
 
 /**

@@ -3916,17 +3916,14 @@ img.pull-right {
 }
 
 .sponsors-tier-strip-title {
-  color: #fff;
-  font-size: 36px;
-  font-weight: 800;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 20px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   margin: 0;
 }
 
-.sponsors-tier-strip--organizer {
-  background: #ff007a;
-}
 .sponsors-tier-strip--platinum,
 .sponsors-tier-strip--gold,
 .sponsors-tier-strip--silver,

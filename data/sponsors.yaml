@@ -9,9 +9,12 @@
 #
 # type: tier category (platinum, gold, silver, media)
 #
-# width (required): logo width in pixels — controls logo size and how many fit per row
+# width (required): tier box width in pixels. Each logo is auto-sized inside a
+#   width x (width * 0.4) box so all logos look equally big, whatever the file size.
+#   Aspect ratio is always preserved.
 #
 # Sponsors only need name, url, and image (filename under /images/sponsors/).
+# Optional per-sponsor width disables auto-sizing and forces that exact width.
 #
 # Example:
 # tiers:
@@ -36,9 +39,16 @@ enabled: true
 tiers:
   - name: "Platinum"
     type: platinum
-    width: 300
-    enabled: false
-    sponsors: []
+    width: 320
+    enabled: true
+    sponsors:
+      - name: "Cloudflare"
+        url: "https://www.cloudflare.com/"
+        image: "cloudflare.png"
+      - name: "AWS"
+        url: "https://aws.amazon.com/"
+        image: "aws.png"
+        #width: 170
 
   - name: "Gold"
     type: gold
@@ -66,7 +76,7 @@ tiers:
 
   - name: "Media"
     type: media
-    width: 180
+    width: 160
     enabled: true
     sponsors:
       - name: "Kube Events"
