@@ -74,8 +74,8 @@ speakers:
 
   - name: "Ege Kayakiran"
     type: speaker
-    title: "Director of Software Development & AI"
-    company: "Sahibinden"
+    title: "CIO"
+    company: "Apilex"
     image: "ege_kayakiran.png"
     bio: "Servant Leader with over 22 years of hands-on experience, including 8+ years in senior technology leadership roles such as CTO, Director, and Principal Architect across Fintech, Banking, E-Commerce, and AI.
 
@@ -86,6 +86,8 @@ speakers:
     Consultancy and leadership style is rooted in a deep understanding of software architecture, Agile delivery, and real-world business needs—stepping in when needed as an architect, strategist, or hands-on builder.
 
     Thrives in environments where technology is not just code, but a driver of innovation and growth."
+    social:
+      other: "https://apilex.ai"
 
   - name: "Florian Nowarre"
     type: speaker
