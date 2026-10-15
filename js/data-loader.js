@@ -4,12 +4,44 @@
  * HTML'e render eder.
  */
 
+// Browser scroll restoration can run before the YAML sections expand the page.
+const scrollKey = `devopsdays-scroll:${location.pathname}${location.search}${location.hash}`;
+const navigationType = performance.getEntriesByType('navigation')[0]?.type;
+const restoreScroll = navigationType === 'reload' || navigationType === 'back_forward';
+const savedScrollValue = restoreScroll ? sessionStorage.getItem(scrollKey) : null;
+const savedScrollY = savedScrollValue === null ? NaN : Number(savedScrollValue);
+
+if (restoreScroll && Number.isFinite(savedScrollY)) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('pagehide', () => {
+    sessionStorage.setItem(scrollKey, String(window.scrollY));
+    history.scrollRestoration = 'auto';
+});
+
+async function restoreScrollAfterRender() {
+    if (!restoreScroll || !Number.isFinite(savedScrollY)) return;
+
+    await document.fonts.ready;
+    await Promise.all(Array.from(document.images, img => img.complete
+        ? Promise.resolve()
+        : new Promise(resolve => {
+            img.addEventListener('load', resolve, { once: true });
+            img.addEventListener('error', resolve, { once: true });
+        })));
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    window.scrollTo(0, savedScrollY);
+}
+
 // YAML dosyalarını yükle ve render et
 document.addEventListener('DOMContentLoaded', function() {
-    loadSpeakers();
-    loadOrganizers();
-    loadSchedule();
-    loadSponsors();
+    Promise.allSettled([
+        loadSpeakers(),
+        loadOrganizers(),
+        loadSchedule(),
+        loadSponsors()
+    ]).then(restoreScrollAfterRender);
 });
 
 /**
@@ -57,22 +89,23 @@ function renderSponsors(tiers, containerId) {
     let html = '';
     tiers.forEach((tier, index) => {
         const width = tier.width;
+        const sponsorCount = Math.max(1, (tier.sponsors || []).length);
         const typeClass = tier.type ? ` sponsors-tier-strip--${tier.type}` : '';
 
-        html += `<div class="row sponsors-wrap sponsors-tier-block" style="padding-top: 40px; justify-content: center; flex-wrap: wrap;">
+        html += `<div class="row sponsors-wrap sponsors-tier-block" style="padding-top: 40px; --sponsor-count: ${sponsorCount}; --sponsor-slot-width: ${width + 48}px; --sponsor-slot-height: ${Math.round(width * 0.4 + 48)}px;">
             <div class="col-lg-12 sponsors-tier-strip-wrap" style="margin-bottom: 0;">
                 <div class="sponsors-tier-strip${typeClass}">
                     <h3 class="sponsors-tier-strip-title">${tier.name}</h3>
                 </div>
             </div>
-            <div class="col-lg-12" style="padding: 0 15px;"><hr style="border-color: rgba(255,255,255,0.15); margin: 8px 0 30px;"></div>`;
+            <div class="col-lg-12" style="padding: 0 15px;"><hr style="border-color: rgba(15,13,58,0.15); margin: 8px 0 30px;"></div>`;
 
         (tier.sponsors || []).forEach(sponsor => {
             const image = resolveSponsorImagePath(sponsor.image);
             // Per-sponsor width is a manual override; otherwise size is computed from the image's aspect ratio
             const fixedWidth = sponsor.width ? ` data-fixed-width="${sponsor.width}"` : '';
             html += `
-            <div style="flex: 0 0 auto; padding: 0 15px; display: flex; align-items: center; justify-content: center;">
+            <div class="sponsor-logo-cell">
                 <a href="${sponsor.url}" class="sponsors-logo" target="_blank" rel="noopener noreferrer">
                     <img class="sponsor-logo-img" src="${image}" alt="${sponsor.name}" data-box-width="${width}"${fixedWidth} style="width: ${sponsor.width || width}px; max-width: 100%; height: auto;">
                 </a>

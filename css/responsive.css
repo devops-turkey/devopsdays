@@ -687,3 +687,90 @@ small device /mobile sm and large
     display: none;
   }
 }
+
+@media (max-width: 767px) {
+  .hero-area.content-left .banner-item .banner-content-wrap {
+    padding-top: 145px;
+    padding-bottom: 60px;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    margin-bottom: 24px;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: clamp(58px, 18vw, 70px);
+    height: clamp(58px, 18vw, 70px);
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item i {
+    display: none;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--ring-color);
+    border-radius: 50%;
+    -webkit-mask: conic-gradient(from -20deg, transparent 0deg 9deg, #000 9deg 120deg, transparent 120deg 129deg, #000 129deg 240deg, transparent 240deg 249deg, #000 249deg 360deg);
+    mask: conic-gradient(from -20deg, transparent 0deg 9deg, #000 9deg 120deg, transparent 120deg 129deg, #000 129deg 240deg, transparent 240deg 249deg, #000 249deg 360deg);
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item:nth-of-type(1) {
+    --ring-color: #00a3ee;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item:nth-of-type(2) {
+    --ring-color: #ffcf4a;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item:nth-of-type(3) {
+    --ring-color: #00c1c1;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item:nth-of-type(4) {
+    --ring-color: #ff6386;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item span,
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item .smalltext {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item span {
+    font-size: 20px;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .countdown .counter-item .smalltext {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap h1.banner-title {
+    font-size: clamp(24px, 7vw, 30px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap p.banner-info {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero-area.content-left .banner-item .banner-content-wrap .banner-lead {
+    font-size: 18px;
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+}

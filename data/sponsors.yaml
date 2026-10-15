@@ -7,13 +7,13 @@
 # enabled (per tier): true/false (default: true)
 #   set to false to hide a specific tier without removing it
 #
-# type: tier category (platinum, gold, silver, media)
+# type: tier category (platinum, gold, silver, community, media)
 #
 # width (required): tier box width in pixels. Each logo is auto-sized inside a
 #   width x (width * 0.4) box so all logos look equally big, whatever the file size.
 #   Aspect ratio is always preserved.
 #
-# Sponsors only need name, url, and image (filename under /images/sponsors/).
+# Sponsors only need name, url, and image (path under /images/sponsors/).
 # Optional per-sponsor width disables auto-sizing and forces that exact width.
 #
 # Example:
@@ -39,7 +39,7 @@ enabled: true
 tiers:
   - name: "Platinum"
     type: platinum
-    width: 320
+    width: 400
     enabled: true
     sponsors:
       - name: "Cloudflare"
@@ -48,11 +48,11 @@ tiers:
       - name: "AWS"
         url: "https://aws.amazon.com/"
         image: "aws.png"
-        #width: 170
+        #width: 140
 
   - name: "Gold"
     type: gold
-    width: 250
+    width: 300
     enabled: true
     sponsors:
       - name: "Kloia"
@@ -67,16 +67,37 @@ tiers:
 
   - name: "Silver"
     type: silver
-    width: 200
+    width: 250
     enabled: true
     sponsors:
       - name: "KubeAdapt"
         url: "https://kubeadapt.io/"
         image: "kubeadapt.png"
 
+  - name: "Community"
+    type: community
+    width: 200
+    enabled: true
+    sponsors:
+      - name: "Devnot"
+        url: "https://www.devnot.com/"
+        image: "community/devnot.png"
+      - name: "Istanbul Coders"
+        url: "https://www.istanbulcoders.org/"
+        image: "community/istanbul-coders.png"
+      - name: "Java Day Istanbul"
+        url: "https://www.javaday.istanbul/"
+        image: "community/javaday.png"
+      - name: "JUG Istanbul"
+        url: "https://www.jugistanbul.org/"
+        image: "community/jugistanbul.png"
+      - name: "KCD Istanbul"
+        url: "https://kcd.ist/"
+        image: "community/kcd-istanbul.png"
+
   - name: "Media"
     type: media
-    width: 160
+    width: 200
     enabled: true
     sponsors:
       - name: "Kube Events"
