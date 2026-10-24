@@ -1003,6 +1003,10 @@ img.pull-right {
   padding: 0 25px;
 }
 
+.banner-item .banner-content-wrap .banner-btn .btn:not(:last-child) {
+  margin-right: 15px;
+}
+
 .banner-img img {
   max-width: 100%;
 }
